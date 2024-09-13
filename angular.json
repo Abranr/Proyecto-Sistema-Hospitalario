@@ -48,17 +48,13 @@
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js",
-              "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js",
-              "/docs/5.0/dist/js/bootstrap.bundle.min.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/jquery.js",
               "src/assets/js/custom.js",
               "src/assets/js/jquery.stellar.min.js",
               "src/assets/js/jquery.sticky.js",
               "src/assets/js/owl.carousel.min.js",
-              "src/assets/js/smoothscroll.js",
-              "src/assets/js/wow.min.js"
+              "src/assets/js/smoothscroll.js"
 
             ],
             "server": "src/main.server.ts",
@@ -129,5 +125,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "76be9e93-b2e5-4def-9196-cc95ee29119b"
   }
 }
