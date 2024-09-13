@@ -55,7 +55,6 @@
               "src/assets/js/jquery.sticky.js",
               "src/assets/js/owl.carousel.min.js",
               "src/assets/js/smoothscroll.js"
-
             ],
             "server": "src/main.server.ts",
             "prerender": true,
