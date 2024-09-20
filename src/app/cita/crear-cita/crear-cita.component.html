@@ -1,0 +1,34 @@
+<main class="p-4 w-100">
+    <h2>Gestión de Recursos</h2>
+
+    <!-- Formulario para agregar nueva cita -->
+
+    <div class="card">
+      <div class="card-header bg-primary text-white">
+        <h5>Agregar Nueva Cita</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="CrearCita" (ngSubmit)="enviarForm()"> 
+          <div class="row">
+            <div class="col-md-4">
+              <label for="idMedico">Médico</label>
+              <input type="number" class="form-control" id="idMedico" placeholder="ID del Médico" required formControlName="idMedico">
+            </div>
+           
+            <div class="col-md-4">
+              <label for="fechaCita">Fecha y Hora</label>
+              <input type="number" class="form-control" id="idHorario" required formControlName="idHorario">
+            </div>
+            <div class="col-md-4">
+              <label for="idPaciente">Paciente</label>
+              <input type="number" class="form-control" id="idPaciente" placeholder="ID del Paciente" required formControlName="idPaciente">
+            </div>
+            <div class="col-md-4">
+              <label for="estado">Estado</label>
+              <input type="text" class="form-control" id="estado" placeholder="Estado de la Cita" required formControlName="estado">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success mt-3">Agregar Cita</button>
+        </form>
+      </div>
+    </div>

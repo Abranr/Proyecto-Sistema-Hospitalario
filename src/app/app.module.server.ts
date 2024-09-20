@@ -3,6 +3,8 @@ import { ServerModule } from '@angular/platform-server';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @NgModule({
   imports: [
@@ -11,4 +13,9 @@ import { AppComponent } from './app.component';
   ],
   bootstrap: [AppComponent],
 })
-export class AppServerModule {}
+export class AppServerModule {
+
+  
+
+
+}
