@@ -11,7 +11,7 @@ import { PacienteI } from '../modelos//paciente.interface';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent  {
+export class LoginComponent implements OnInit {
 //Esta es la logica de el inicio de sesion 
   loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
@@ -21,6 +21,8 @@ export class LoginComponent  {
   loginResponse: any;
 
   constructor(private api: ApiService, private router: Router, private formBuilder: FormBuilder) {}
+
+  ngOnInit(): void {}
 
   onLogin() {
     const formValue = this.loginForm.value;
