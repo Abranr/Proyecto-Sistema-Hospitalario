@@ -25,6 +25,10 @@ import { FormularioMedicoComponent } from './medicos/Formularios/formulario-medi
 import { FormularioPacienteComponent } from './medicos/Formularios/formulario-paciente/formulario-paciente.component';
 import { MedicosEspecialidadesComponent } from './medicos/medicos-especialidades/medicos-especialidades.component';
 import { PacientesComponent } from './medicos/pacientes/pacientes.component';
+import { ConsultarMedicosComponent } from './crud-medicos/consultar-medicos/consultar-medicos.component';
+import { CrearMedicosComponent } from './crud-medicos/crear-medicos/crear-medicos.component';
+import { EditarMedicosComponent } from './crud-medicos/editar-medicos/editar-medicos.component';
+import { EliminarMedicosComponent } from './crud-medicos/eliminar-medicos/eliminar-medicos.component';
 
 
 @NgModule({
@@ -49,6 +53,10 @@ import { PacientesComponent } from './medicos/pacientes/pacientes.component';
     FormularioPacienteComponent,
     MedicosEspecialidadesComponent,
     PacientesComponent,
+    ConsultarMedicosComponent,
+    CrearMedicosComponent,
+    EditarMedicosComponent,
+    EliminarMedicosComponent,
   ],
   imports: [
     BrowserModule,
