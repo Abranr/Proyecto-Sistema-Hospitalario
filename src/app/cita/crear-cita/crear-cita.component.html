@@ -8,13 +8,13 @@
         <h5>Agregar Nueva Cita</h5>
       </div>
       <div class="card-body">
-        <form [formGroup]="CrearCita" (ngSubmit)="enviarForm()"> 
+        <form [formGroup]="CrearCita" (ngSubmit)="enviarForm()">
           <div class="row">
             <div class="col-md-4">
               <label for="idMedico">Médico</label>
               <input type="number" class="form-control" id="idMedico" placeholder="ID del Médico" required formControlName="idMedico">
             </div>
-           
+
             <div class="col-md-4">
               <label for="fechaCita">Fecha y Hora</label>
               <input type="number" class="form-control" id="idHorario" required formControlName="idHorario">

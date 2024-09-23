@@ -220,7 +220,7 @@ a{
   height: 100vh;
 }
 .bg-sidebar {
-  background-color: #2f3131; /* Azul oscuro para la barra lateral */
+  background-color: #0891B2; /* Azul oscuro para la barra lateral */
 }
 .card {
   transition: transform 0.3s, box-shadow 0.3s;

@@ -11,6 +11,21 @@ import { CrearComponent } from './cita/crear-cita/crear-cita.component';
 import { EditarCitaComponent } from './cita/editar-cita/editar-cita.component';
 import { EliminarCitaComponent } from './cita/eliminar-cita/eliminar-cita.component';
 import { ConsultarCitaComponent } from './cita/consultar-cita/consultar-cita.component';
+import { HistorialMedicoComponent } from './medicos/historial-medico/historial-medico.component';
+import { ConsultasAnterioresComponent } from './medicos/consultas-anteriores/consultas-anteriores.component';
+import { DiagnosticosComponent } from './medicos/diagnosticos/diagnosticos.component';
+import { RecetasComponent } from './medicos/recetas/recetas.component';
+import { GestionarHorariosComponent } from './horarios/gestionar-horarios/gestionar-horarios.component';
+import { VisualizacionReservasComponent } from './reservas/visualizacion-reservas/visualizacion-reservas.component';
+import { GestionRecursosComponent } from './recursos/gestion-recursos/gestion-recursos.component';
+import { PanelDeControlComponent } from './panel de control/panel-de-control/panel-de-control.component';
+import { PrincipalMedicosComponent } from './medicos/principal-medicos/principal-medicos.component';
+import { FormularioHorarioComponent } from './horarios/formulario-horario/formulario-horario.component';
+import { FormularioMedicoComponent } from './medicos/Formularios/formulario-medico/formulario-medico.component';
+import { FormularioPacienteComponent } from './medicos/Formularios/formulario-paciente/formulario-paciente.component';
+import { MedicosEspecialidadesComponent } from './medicos/medicos-especialidades/medicos-especialidades.component';
+import { PacientesComponent } from './medicos/pacientes/pacientes.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +34,21 @@ import { ConsultarCitaComponent } from './cita/consultar-cita/consultar-cita.com
     CrearComponent,
     EditarCitaComponent,
     EliminarCitaComponent,
-    ConsultarCitaComponent
+    ConsultarCitaComponent,
+    HistorialMedicoComponent,
+    ConsultasAnterioresComponent,
+    DiagnosticosComponent,
+    RecetasComponent,
+    GestionarHorariosComponent,
+    VisualizacionReservasComponent,
+    GestionRecursosComponent,
+    PanelDeControlComponent,
+    PrincipalMedicosComponent,
+    FormularioHorarioComponent,
+    FormularioMedicoComponent,
+    FormularioPacienteComponent,
+    MedicosEspecialidadesComponent,
+    PacientesComponent,
   ],
   imports: [
     BrowserModule,

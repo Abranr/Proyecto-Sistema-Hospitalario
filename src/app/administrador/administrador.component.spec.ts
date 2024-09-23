@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppComponent } from '../app.component';
 import { AdministradorComponent } from './administrador.component';
-import { PacienteComponent } from '../paciente/paciente.component';
+
 
 describe('AdministradorComponent', () => {
   let component: AdministradorComponent;
@@ -13,7 +13,7 @@ describe('AdministradorComponent', () => {
       declarations: [AdministradorComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(AdministradorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

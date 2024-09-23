@@ -1,0 +1,15 @@
+.card {
+  margin-top: 20px;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.table th, .table td {
+  text-align: center;
+}
+
+button {
+  margin-right: 5px;
+}
+.bg-sidebar {
+  background-color: #343a40; /* Color del sidebar */
+}
