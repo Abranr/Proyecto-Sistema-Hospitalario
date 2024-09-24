@@ -1,7 +1,7 @@
 export interface PacienteI {
     username: string;
     password: string;
-    dpi: string;
+    dpi: number;
     nombres: string;
     apellidos: string;
     fechaNacimiento: string;

@@ -1,62 +1,74 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 import { ApiService } from './service/api.service';
 import { LoginI } from '../modelos/login.interface';
 import { Router } from '@angular/router';
-import { PacienteI } from '../modelos//paciente.interface';
-
+import { PacienteI } from '../modelos/paciente.interface';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
-export class LoginComponent  {
-//Esta es la logica de el inicio de sesion 
+export class LoginComponent {
+  //Esta es la lógica del inicio de sesión
   loginForm = new FormGroup({
     username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
+    password: new FormControl('', Validators.required),
   });
-  //Esta sera la variable que guarde el objeto Usuario
+  //Esta será la variable que guardará el objeto Usuario
   loginResponse: any;
 
-  constructor(private api: ApiService, private router: Router, private formBuilder: FormBuilder) {}
+  constructor(
+    private api: ApiService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {}
 
   onLogin() {
     const formValue = this.loginForm.value;
     const loginData: LoginI = {
-      username: formValue.username ?? '',
-      password: formValue.password ?? ''
+        username: formValue.username ?? '',
+        password: formValue.password ?? '',
     };
+
     this.api.loginByEmail(loginData).subscribe(
-      data => {
-        this.loginResponse = data;
-        console.log(this.loginResponse);
+        data => {
+            // Asumimos que idRol viene en el objeto de respuesta data
+            const userRole = data.idRol; // Extraer directamente idRol
+            console.log('Rol del usuario:', userRole); // Debugging para verificar qué valor tiene idRol
 
-        // Asumiendo que numero es `idRol` esta parte lo respondera 
-        const userRole = this.loginResponse.idRol;
-
-        // Esta parte redireccionara al rol asignado 
-        switch (userRole) {
-          case 1:
-            this.router.navigate(['/paciente-dashboard']);
-            break;
-          case 2:
-            this.router.navigate(['/admin-dashboard']);
-            break;
-          case 3:
-            this.router.navigate(['/doctor-dashboard']);
-            break;
-          default:
-            console.error('Rol no reconocido');
+            // Redirigir según el rol
+            switch (userRole) {
+                case 1:
+                    console.log('Paciente');
+                   /*  this.router.navigate(['/paciente-dashboard']); */
+                    break;
+                case 2:
+                    console.log('Admin');
+                    /* this.router.navigate(['/admin-dashboard']); */
+                    break;
+                case 3:
+                  console.log('Doctor');
+                    /* this.router.navigate(['/doctor-dashboard']); */
+                    break;
+                default:
+                    console.error('Rol no reconocido');
+                    break;
+            }
+        },
+        error => {
+            console.error('Error al iniciar sesión', error);
         }
-      },
-      error => {
-        console.error('Error al iniciar sesión', error);
-      }
     );
-  }
-//Aca comienza la logica de la inscripcion del usuario 
+}
+
+  // Formulario para la inscripción de un nuevo usuario
   nuevoForm = this.formBuilder.group({
     username: ['', Validators.required],
     password: ['', Validators.required],
@@ -64,12 +76,13 @@ export class LoginComponent  {
     nombres: ['', Validators.required],
     apellidos: ['', Validators.required],
     fechaNacimiento: ['', Validators.required],
-    email: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]], // Validación para correos electrónicos
     numero: ['', [Validators.required, Validators.pattern('^[0-9]*$')]], // Solo números
     idRol: ['1', Validators.pattern('^[0-9]*$')], // Solo números
-    estado: ['1', Validators.required]
+    estado: ['1', Validators.required],
   });
 
+  // Método para manejar el formulario de inscripción
   postForm(form: FormGroup) {
     const formValue = form.value;
     const pacienteData: PacienteI = {
@@ -81,13 +94,18 @@ export class LoginComponent  {
       fechaNacimiento: formValue.fechaNacimiento,
       email: formValue.email,
       numero: formValue.numero,
-      idRol: 1,
-      estado: 1
+      idRol: 1, // Por defecto será 1
+      estado: 1, // Por defecto será 1
     };
 
-    this.api.postPaciente(pacienteData).subscribe(data => {
-      console.log(data);
-    });
+    // Llamada al servicio para registrar el paciente
+    this.api.postPaciente(pacienteData).subscribe(
+      (data) => {
+        console.log('El objeto usuario se guardó correctamente:', data);
+      },
+      (error) => {
+        console.error('Error al guardar el objeto usuario:', error);
+      }
+    );
   }
-
 }
