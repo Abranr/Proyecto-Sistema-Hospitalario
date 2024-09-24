@@ -78,8 +78,8 @@ export class LoginComponent {
     fechaNacimiento: ['', Validators.required],
     email: ['', [Validators.required, Validators.email]], // Validación para correos electrónicos
     numero: ['', [Validators.required, Validators.pattern('^[0-9]*$')]], // Solo números
-    idRol: ['1', Validators.pattern('^[0-9]*$')], // Solo números
-    estado: ['1', Validators.required],
+    idRol: [' ', Validators.pattern('^[0-9]*$')], // Solo números
+    estado: [' ', Validators.required],
   });
 
   // Método para manejar el formulario de inscripción
@@ -94,8 +94,8 @@ export class LoginComponent {
       fechaNacimiento: formValue.fechaNacimiento,
       email: formValue.email,
       numero: formValue.numero,
-      idRol: 1, // Por defecto será 1
-      estado: 1, // Por defecto será 1
+      idRol:formValue.idRol, 
+      estado:formValue.estado, 
     };
 
     // Llamada al servicio para registrar el paciente

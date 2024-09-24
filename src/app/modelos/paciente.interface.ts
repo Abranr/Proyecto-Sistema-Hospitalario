@@ -7,6 +7,6 @@ export interface PacienteI {
     fechaNacimiento: string;
     email: string;
     numero: string;
-    idRol: number; // 1: paciente, 2: doctor, 3: admin
-    estado: number; // 1: activo, 2: inactivo
+    idRol: 1 | 2 | 3; // 1: paciente, 2: doctor, 3: admin
+    estado: 0 | 1; // 1: activo, 2: inactivo
 }
