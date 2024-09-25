@@ -1,81 +1,24 @@
-<header class="d-flex justify-content-between align-items-center p-3 bg-light shadow-sm">
-  <div class="d-flex align-items-center">
-      <h1 class="fs-4 mb-0 text-center w-100">Centro Médico Esperanza</h1>
-  </div>
-  <nav class="d-flex align-items-center">
-      <ul class="nav me-4">
-          <li class="nav-item"><a href="#" class="nav-link text-dark">Inicio</a></li>
-          <li class="nav-item"><a href="#" class="nav-link text-dark">Reservar Citas</a></li>
-          <li class="nav-item"><a href="#" class="nav-link text-dark">Ingresar Horario</a></li>
-      </ul>
-      <form class="d-flex me-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar doctor" aria-label="Buscar doctor">
-          <button class="btn btn-outline-primary" type="submit">
-              <i class="fas fa-search"></i> Buscar
-          </button>
+<div class="container mt-5">
+  <h2 class="text-center mb-4 text-primary">Agregar Horario</h2>
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">Formulario de Horario</div>
+    <div class="card-body">
+      <form [formGroup]="editarHorario" (ngSubmit)="enviarForm()">
+        <div class="form-group mb-3">
+          <label for="medico">Médico</label>
+          <select class="form-control" id="medico" formControlName="idMedico" required>
+            <option *ngFor="let medico of medicos" value={{medico.idMedico}}>{{medico.Medico}}</option>
+          </select>
+        </div>
+        <div class="form-group mb-3">
+          <label for="sala">Sala de Consulta</label>
+          <select class="form-control" id="sala" formControlName="idSala" required>
+            <option *ngFor="let sala of salas" value={{sala.idSalaConsulta}}>Sala {{sala.idSalaConsulta}} - Nivel {{sala.nivel}}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success">Editar Horario</button>
+        <button type="button" class="btn btn-success" (click)="eliminar(horarios.idHorario)">Eliminar Horario</button>
       </form>
-      <div class="user-icon ms-3">
-          <i class="fas fa-user-circle"></i>
-      </div>
-  </nav>
-</header>
-
-<div class="d-flex content">
-  <aside class="bg-sidebar text-white vh-100 p-4">
-      <div class="menu-header d-flex align-items-center mb-4">
-          <i class="fas fa-user-circle fs-2 me-2"></i>
-          <span>Médico</span>
-      </div>
-      <ul class="nav flex-column mb-4">
-          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/medicos">Gestión de Horarios</a></li>
-          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/historial">Médico y Tipo de Especialidad</a></li>
-          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/agregar-usuario">Sala de Consulta</a></li>
-          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/panel-control">Panel de Control</a></li>
-      </ul>
-      <hr class="text-secondary">
-      <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Historial</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Pacientes</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link text-white">Recetas</a></li>
-      </ul>
-  </aside>
-
-  <div class="container mt-5">
-    <h2 class="text-center mb-4 text-primary">Gestión de Horarios</h2>
-
-    <!-- Tabla para mostrar horarios -->
-    <div class="table-responsive">
-      <table class="table table-bordered table-striped">
-        <thead class="thead-light">
-          <tr>
-            <th>ID Horario</th>
-            <th>ID Médico</th>
-            <th>ID Sala</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Aquí se generan dinámicamente los horarios -->
-          <!--
-          <tr *ngFor="let horario of horarios">
-            <td>{{ horario.idHorario }}</td>
-            <td>{{ horario.idMedico }}</td>
-            <td>{{ horario.idSala }}</td>
-            <td>
-              <button class="btn btn-primary btn-sm" (click)="editarHorario(horario.idHorario)">Editar</button>
-              <button class="btn btn-danger btn-sm" (click)="eliminarHorario(horario.idHorario)">Eliminar</button>
-            </td>
-          </tr>
-          -->
-        </tbody>
-      </table>
     </div>
   </div>
 </div>
-
-<footer class="text-center py-3 bg-light">
-  <p class="mb-0">&copy; 2024 Centro Médico Esperanza. Todos los derechos reservados.</p>
-</footer>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -1,0 +1,15 @@
+<div class="card mt-4">
+    <div class="card-header">
+        Agregar Especialidad
+    </div>
+    <form [formGroup]="editarEspecialidad" (ngSubmit)="enviarForm()">
+    <div class="card-body">
+        <div class="form-group">
+            <label>Especialidad</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
+        </div>
+        <button type="submit" class="btn btn-success">Editar Especialidad</button>
+        <button type="button" class="btn btn-success mt-3" (click)="eliminar(especialidad.idEspecialidad)">Eliminar Especialidad</button>
+    </div>
+</form>
+</div>

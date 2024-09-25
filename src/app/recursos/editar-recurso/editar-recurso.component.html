@@ -1,0 +1,15 @@
+<form [formGroup]="editarRecurso" (ngSubmit)="enviarForm()">
+    <div class="card mt-4">
+        <div class="card-header">
+            Agregar Nueva Sala
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <label>Nivel</label>
+                  <input type="tel" class="form-control" id="nivel"  formControlName="nivel"  required>
+            </div>
+            <button type="submit" class="btn btn-success">Editar Sala</button>
+            <button type="button" class="btn btn-success mt-3" (click)="eliminar(salas.idSalaConsulta)">Eliminar usuario</button>
+        </div>
+    </div>
+  </form>

@@ -18,7 +18,7 @@ export class AdministradorComponent {
 
   }
 
-  cita: any [] =[];
+  /* cita: any [] =[];
    ngOnInit(): void {
       this.appService.getPacientes().subscribe(
         (data: any[]) => {
@@ -30,5 +30,5 @@ export class AdministradorComponent {
          // console.error('Error al obtener usuarios:', error);
         }
      );} 
-
+ */
 }

@@ -1,0 +1,30 @@
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Gestión de Recursos</h2>
+  
+        <!-- Tabla para mostrar salas -->
+        <h3>Salas de Consulta</h3>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Sala</th>
+                    <th>Nivel</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se agregarían las salas -->
+                <tr *ngFor="let sala of salas">
+                    <td>{{sala.idSalaConsulta}}</td>
+                    <td>{{sala.nivel}}</td>
+                    <td>
+                        <button class="btn btn-primary btn-sm" (click)="editar(sala.idSalaConsulta)">Editar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+  
+       
+   
+        
+  
+  

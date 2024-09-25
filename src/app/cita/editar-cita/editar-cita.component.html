@@ -12,23 +12,33 @@
           <div class="row">
             <div class="col-md-4">
               <label for="idMedico">Médico</label>
-              <input type="number" class="form-control" id="idMedico" placeholder="ID del Médico" required formControlName="idMedico">
+              <select class="form-control" id="idMedico" placeholder="Médico" formControlName="idMedico" required>
+              <option *ngFor="let medico of medicos" value={{medico.idMedico}}>{{medico.Medico}}</option>
+            </select>
             </div>
-           
+
             <div class="col-md-4">
               <label for="fechaCita">Fecha y Hora</label>
-              <input type="number" class="form-control" id="idHorario" required formControlName="idHorario">
+              <input type="date" class="form-control" id="fechaCita" required formControlName="fechaCita">
             </div>
             <div class="col-md-4">
               <label for="idPaciente">Paciente</label>
-              <input type="number" class="form-control" id="idPacienete" placeholder="ID del Paciente" required formControlName="idPaciente">
+              <select class="form-control" id="idPaciente" placeholder="Paciente" formControlName="idPaciente" required>
+                <option *ngFor="let paciente of pacientes" value={{paciente.idUsuario}}>{{paciente.nombres}}</option>
+              </select>
+            </div>
+            <div class="col-md-4"></div>
+              <label for="idHorario">Horario</label>
+              <select class="form-control" id="idHorario" placeholder="Horario" formControlName="idHorario" required>
+                <option *ngFor="let horario of horarios" value={{horario.idHorario}}>{{horario.Horario}}</option>
+              </select>
             </div>
             <div class="col-md-4">
               <label for="estado">Estado</label>
               <input type="text" class="form-control" id="estado" placeholder="Estado de la Cita" required formControlName="estado">
             </div>
-          </div>
           <button type="submit" class="btn btn-success mt-3">Editar Cita</button>
+          <button type="button" class="btn btn-success mt-3" (click)="eliminarCita(cita.idCita)">Eliminar Cita</button>
         </form>
       </div>
     </div>

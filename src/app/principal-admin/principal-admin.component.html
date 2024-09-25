@@ -1,0 +1,73 @@
+<div class="container-fluid dashboard-container d-flex justify-content-center align-items-start flex-column mt-3">
+    <div class="row text-center w-100">
+        <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <h2 class="text-center my-4">Panel de Visualización Administrador</h2>
+            <div class="row justify-content-center">
+    <!-- Card for today's appointments -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-lg rounded" style="background: #f0f9ff; height: 300px;">
+            <div class="card-body d-flex flex-column justify-content-between text-center p-4">
+                <h5 class="card-title text-primary">Citas Disponibles</h5>
+                <p class="card-text">Muestra el horario disponible para las citas.</p>
+                <button  class="btn btn-primary mx-auto" style="width: 150px;" (click)="citas()">Ver Citas</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card for active patients -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-lg rounded" style="background: #e6f7e6; height: 300px;">
+            <div class="card-body d-flex flex-column justify-content-between text-center p-4">
+                <h5 class="card-title text-success">Pacientes</h5>
+                <p class="card-text">Pacientes registrados en el sistema.</p>
+                <button class="btn btn-success mx-auto" style="width: 150px;" (click)="pacientes()">Ver Pacientes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card for available rooms -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-lg rounded" style="background: #e6f9ff; height: 300px;">
+            <div class="card-body d-flex flex-column justify-content-between text-center p-4">
+                <h5 class="card-title text-info">Salas</h5>
+                <p class="card-text">Salas de consulta que están actualmente disponibles.</p>
+                <button class="btn btn-info mx-auto" style="width: 150px;" (click)="salas()">Ver Salas</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-center">
+    <!-- Card for pending reservations -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-lg rounded" style="background: #fff3cd; height: 300px;">
+            <div class="card-body d-flex flex-column justify-content-between text-center p-4">
+                <h5 class="card-title text-warning">Reservas</h5>
+                <p class="card-text">Las reservas que están hechas por los pacientes.</p>
+                <button class="btn btn-warning mx-auto" style="width: 150px;"(click)="horarios()">Ver las reservas</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card for issued prescriptions -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-lg rounded" style="background: #f8d7da; height: 300px;">
+            <div class="card-body d-flex flex-column justify-content-between text-center p-4">
+                <h5 class="card-title text-danger">Recetas</h5>
+                <p class="card-text">Recetas médicas emitidas por los doctores.</p>
+                <button class="btn btn-danger mx-auto" style="width: 150px;" (click)="recetas()">Ver Recetas</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card for active doctors -->
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-lg rounded" style="background: #d6d8db; height: 300px;">
+            <div class="card-body d-flex flex-column justify-content-between text-center p-4">
+                <h5 class="card-title text-secondary">Médicos</h5>
+                <p class="card-text">Médicos actualmente trabajando en la clínica.</p>
+                <button class="btn btn-secondary mx-auto" style="width: 150px;" (click)="medicos()">Ver Médicos</button>
+            </div>
+        </div>
+    </div>
+</div>

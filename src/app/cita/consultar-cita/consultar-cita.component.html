@@ -27,14 +27,17 @@
             <th>Medico</th>
             <th>Fecha</th>
             <th>Estado</th>
+            <th>Accion</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let cita of citas">
             <td> {{ cita.Paciente}} </td>
-            <td> {{ cita.Medico}} </td>
+            <td> {{ cita.Medico}} </td>   
             <td> {{ cita.fechaCita}} </td>
             <td> {{ cita.estado}} </td>
+            <td>
+              <button class="btn btn-primary btn-sm" (click)="editar(cita.idCita)" >Editar</button>
           </tr>
           
         </tbody>

@@ -24,13 +24,15 @@
   <aside class="bg-sidebar text-white vh-100 p-4">
       <div class="menu-header d-flex align-items-center mb-4">
           <i class="fas fa-user-circle fs-2 me-2"></i>
-          <span>Administrador</span>
+          <span><a class="nav-link text-white" routerLink="/">Administrador</a></span>
       </div>
       <ul class="nav flex-column mb-4">
-          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/medicos">Gestión de Horarios</a></li>
-          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/historial">Visualización de Reservas</a></li>
-          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="agregar-usuario">Gestión de Recursos</a></li>
-          <li class="nav-item mb-2"><a class="nav-link text-white">Panel de Control</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio">Inicio</a></li>
+          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/agregar-cita">Agendar cita</a></li>
+          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/agregar-usuario">Agregar usuario</a></li>
+          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/agregar-especialidad">Agregar especialidad</a></li>
+          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/agregar-medico">Agregar médico</a></li>
+          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/agregar-horario">Agregar horario</a></li>
       </ul>
       <hr class="text-secondary">
       <ul class="nav flex-column">
@@ -43,78 +45,10 @@
   <div class="container-fluid dashboard-container d-flex justify-content-center align-items-start flex-column mt-3">
       <div class="row text-center w-100">
           <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-              <h2 class="text-center my-4">Panel de Visualización Administrador</h2>
 
-              <div class="row justify-content-center">
-                  <!-- Card for today's appointments -->
-                  <div class="col-md-4 mb-4">
-                      <div class="card shadow-lg rounded" style="background: #f0f9ff; height: 300px;">
-                          <div class="card-body d-flex flex-column justify-content-between text-center p-4">
-                              <h5 class="card-title text-primary">Citas Disponibles</h5>
-                              <p class="card-text">Muestra el horario disponible para las citas.</p>
-                              <a href="#" class="btn btn-primary mx-auto" style="width: 150px;">Ver Citas</a>
-                          </div>
-                      </div>
-                  </div>
 
-                  <!-- Card for active patients -->
-                  <div class="col-md-4 mb-4">
-                      <div class="card shadow-lg rounded" style="background: #e6f7e6; height: 300px;">
-                          <div class="card-body d-flex flex-column justify-content-between text-center p-4">
-                              <h5 class="card-title text-success">Pacientes</h5>
-                              <p class="card-text">Pacientes registrados en el sistema.</p>
-                              <a href="#" class="btn btn-success mx-auto" style="width: 150px;">Ver Pacientes</a>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!-- Card for available rooms -->
-                  <div class="col-md-4 mb-4">
-                      <div class="card shadow-lg rounded" style="background: #e6f9ff; height: 300px;">
-                          <div class="card-body d-flex flex-column justify-content-between text-center p-4">
-                              <h5 class="card-title text-info">Salas</h5>
-                              <p class="card-text">Salas de consulta que están actualmente disponibles.</p>
-                              <a href="#" class="btn btn-info mx-auto" style="width: 150px;">Ver Salas</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="row justify-content-center">
-                  <!-- Card for pending reservations -->
-                  <div class="col-md-4 mb-4">
-                      <div class="card shadow-lg rounded" style="background: #fff3cd; height: 300px;">
-                          <div class="card-body d-flex flex-column justify-content-between text-center p-4">
-                              <h5 class="card-title text-warning">Reservas</h5>
-                              <p class="card-text">Las reservas que están hechas por los pacientes.</p>
-                              <a href="#" class="btn btn-warning mx-auto" style="width: 150px;">Ver las reservas</a>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!-- Card for issued prescriptions -->
-                  <div class="col-md-4 mb-4">
-                      <div class="card shadow-lg rounded" style="background: #f8d7da; height: 300px;">
-                          <div class="card-body d-flex flex-column justify-content-between text-center p-4">
-                              <h5 class="card-title text-danger">Recetas</h5>
-                              <p class="card-text">Recetas médicas emitidas por los doctores.</p>
-                              <a href="#" class="btn btn-danger mx-auto" style="width: 150px;">Ver Recetas</a>
-                          </div>
-                      </div>
-                  </div>
-
-                  <!-- Card for active doctors -->
-                  <div class="col-md-4 mb-4">
-                      <div class="card shadow-lg rounded" style="background: #d6d8db; height: 300px;">
-                          <div class="card-body d-flex flex-column justify-content-between text-center p-4">
-                              <h5 class="card-title text-secondary">Médicos</h5>
-                              <p class="card-text">Médicos actualmente trabajando en la clínica.</p>
-                              <a href="#" class="btn btn-secondary mx-auto" style="width: 150px;">Ver Médicos</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
+    <router-outlet>
+    </router-outlet>
               <div class="row justify-content-center">
                   <div class="col-md-10">
                       <canvas id="chartUtilizacion" width="400" height="200"></canvas>
@@ -124,6 +58,8 @@
       </div>
   </div>
 </div>
+
+
 
 <footer class="text-center py-3 bg-light">
   <p class="mb-0">&copy; 2024 Centro Médico Esperanza. Todos los derechos reservados.</p>

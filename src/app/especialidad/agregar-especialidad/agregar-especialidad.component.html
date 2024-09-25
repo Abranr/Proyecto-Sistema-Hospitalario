@@ -1,0 +1,19 @@
+
+        
+  
+        <!-- Formulario para modificar reserva -->
+        <div class="card mt-4">
+            <div class="card-header">
+                Agregar Especialidad
+            </div>
+            <form [formGroup]="CrearEspecialidad" (ngSubmit)="enviarForm()">
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Especialidad</label>
+                    <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
+                </div>
+                <button type="submit" class="btn btn-success">Agregar Especialidad</button>
+            </div>
+        </form>
+        </div>
+

@@ -1,0 +1,29 @@
+
+  
+    <div class="container mt-5">
+      <h2 class="text-center mb-4">Recetas Médicas</h2>
+  
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID Receta</th>
+            <th>ID Cita</th>
+            <th>Paciente</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Ejemplo de datos; estos serían generados dinámicamente -->
+          <tr   *ngFor="let receta of recetas">
+            <td>{{receta.idReceta}}</td>
+            <td>{{receta.idCita}}</td>
+            <td>{{receta.Paciente}}</td>
+            <td>{{receta.descripcion}}</td>
+            <td>
+              <button class="btn btn-primary btn-sm" (click)="editar(receta.idReceta)">Editar</button>
+          </td>
+          </tr>
+          <tr>
+        </tbody>
+      </table>
+    </div>

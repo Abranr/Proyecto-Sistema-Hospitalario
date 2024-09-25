@@ -1,0 +1,34 @@
+
+  
+    <div class="container mt-5">
+      <h2 class="text-center mb-4 text-primary">Gestión de Horarios</h2>
+  
+      <!-- Tabla para mostrar horarios -->
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="thead-light">
+            <tr>
+              <th>ID Horario</th>
+              <th> Médico</th>
+              <th> Sala</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr *ngFor="let horario of horarios">
+              <td>{{ horario.idHorario }}</td>
+              <td>{{ horario.Medico }}</td>
+              <td>{{ horario.Sala }}</td>
+              <td>
+                <button class="btn btn-primary btn-sm" (click)="editar(horario.idHorario)">Editar</button>
+            </td>
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+ 
+  
+  

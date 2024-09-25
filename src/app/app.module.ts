@@ -9,12 +9,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppService } from './app.service';
 import { CrearComponent } from './cita/crear-cita/crear-cita.component';
 import { EditarCitaComponent } from './cita/editar-cita/editar-cita.component';
-import { EliminarCitaComponent } from './cita/eliminar-cita/eliminar-cita.component';
 import { ConsultarCitaComponent } from './cita/consultar-cita/consultar-cita.component';
 import { HistorialMedicoComponent } from './medicos/historial-medico/historial-medico.component';
 import { ConsultasAnterioresComponent } from './medicos/consultas-anteriores/consultas-anteriores.component';
 import { DiagnosticosComponent } from './medicos/diagnosticos/diagnosticos.component';
-import { RecetasComponent } from './medicos/recetas/recetas.component';
 import { GestionarHorariosComponent } from './horarios/gestionar-horarios/gestionar-horarios.component';
 import { VisualizacionReservasComponent } from './reservas/visualizacion-reservas/visualizacion-reservas.component';
 import { GestionRecursosComponent } from './recursos/gestion-recursos/gestion-recursos.component';
@@ -24,7 +22,19 @@ import { FormularioHorarioComponent } from './horarios/formulario-horario/formul
 import { FormularioMedicoComponent } from './medicos/Formularios/formulario-medico/formulario-medico.component';
 import { FormularioPacienteComponent } from './medicos/Formularios/formulario-paciente/formulario-paciente.component';
 import { MedicosEspecialidadesComponent } from './medicos/medicos-especialidades/medicos-especialidades.component';
-import { PacientesComponent } from './medicos/pacientes/pacientes.component';
+import { ConsultarHorarioComponent } from './horarios/consultar-horario/consultar-horario.component';
+import { ConsultarUsuariosComponent } from './medicos/Formularios/consultar-usuarios/consultar-usuarios.component';
+import { ConsultarRecursosComponent } from './recursos/consultar-recursos/consultar-recursos.component';
+import { ConsultarEspecialidadComponent } from './especialidad/consultar-especialidad/consultar-especialidad.component';
+import { AgregarEspecialidadComponent } from './especialidad/agregar-especialidad/agregar-especialidad.component';
+import { EditarEspecialidadComponent } from './especialidad/editar-especialidad/editar-especialidad.component';
+import { AgregarRecetaComponent } from './recetas/agregar-receta/agregar-receta.component';
+import { ConsultarRecetaComponent } from './recetas/consultar-receta/consultar-receta.component';
+import { EditarRecetaComponent } from './recetas/editar-receta/editar-receta.component';
+import { EditarPacienteComponent } from './medicos/Formularios/editar-paciente/editar-paciente.component';
+import { EditarRecursoComponent } from './recursos/editar-recurso/editar-recurso.component';
+import { EditarMedicoComponent } from './medicos/Formularios/editar-medico/editar-medico.component';
+import { PrincipalAdminComponent } from './principal-admin/principal-admin.component';
 
 
 @NgModule({
@@ -33,12 +43,10 @@ import { PacientesComponent } from './medicos/pacientes/pacientes.component';
     AdministradorComponent,
     CrearComponent,
     EditarCitaComponent,
-    EliminarCitaComponent,
     ConsultarCitaComponent,
     HistorialMedicoComponent,
     ConsultasAnterioresComponent,
     DiagnosticosComponent,
-    RecetasComponent,
     GestionarHorariosComponent,
     VisualizacionReservasComponent,
     GestionRecursosComponent,
@@ -48,7 +56,19 @@ import { PacientesComponent } from './medicos/pacientes/pacientes.component';
     FormularioMedicoComponent,
     FormularioPacienteComponent,
     MedicosEspecialidadesComponent,
-    PacientesComponent,
+    ConsultarHorarioComponent,
+    ConsultarUsuariosComponent,
+    ConsultarRecursosComponent,
+    ConsultarEspecialidadComponent,
+    AgregarEspecialidadComponent,
+    EditarEspecialidadComponent,
+    AgregarRecetaComponent,
+    ConsultarRecetaComponent,
+    EditarRecetaComponent,
+    EditarPacienteComponent,
+    EditarRecursoComponent,
+    EditarMedicoComponent,
+    PrincipalAdminComponent,
   ],
   imports: [
     BrowserModule,

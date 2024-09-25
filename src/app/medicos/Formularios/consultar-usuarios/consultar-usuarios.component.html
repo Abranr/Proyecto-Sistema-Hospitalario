@@ -1,0 +1,41 @@
+
+  
+    <div class="container mt-5">
+      <h2 class="text-center mb-4 text-primary">Gestión de Usuarios</h2>
+  
+      <!-- Tabla para mostrar horarios -->
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead class="thead-light">
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>DPI</th>
+              <th>Fecha de Nacimiento</th>
+              <th>Email</th>
+              <th>Número</th>
+              <th>Rol</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr *ngFor="let usuario of usuarios">
+              <td>{{ usuario.nombres }}</td>
+              <td>{{ usuario.apellidos }}</td>
+              <td>{{ usuario.dpi }}</td>
+              <td>{{ usuario.fechaNacimiento }}</td>
+              <td>{{ usuario.email }}</td>
+              <td>{{ usuario.numero }}</td>
+              <td>{{ usuario.descripcion }}</td>
+              <td>
+                <button class="btn btn-primary btn-sm" (click)="editar(usuario.idUsuario)">Editar</button>
+            
+            </td>
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+  
