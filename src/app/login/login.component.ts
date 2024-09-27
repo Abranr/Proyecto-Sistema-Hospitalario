@@ -21,9 +21,7 @@ export class LoginComponent {
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
-  //Esta será la variable que guardará el objeto Usuario
-  loginResponse: any;
-
+  
   constructor(
     private api: ApiService,
     private router: Router,
@@ -33,29 +31,29 @@ export class LoginComponent {
   onLogin() {
     const formValue = this.loginForm.value;
     const loginData: LoginI = {
-        username: formValue.username ?? '',
-        password: formValue.password ?? '',
+      username: formValue.username ?? '',
+      password: formValue.password ?? '',
     };
 
     this.api.loginByEmail(loginData).subscribe(
         data => {
-            // Asumimos que idRol viene en el objeto de respuesta data
-            const userRole = data.idRol; // Extraer directamente idRol
-            console.log('Rol del usuario:', userRole); // Debugging para verificar qué valor tiene idRol
 
+          let user = data;;
+          let userRole = user.idRol;
+          console.log(user.username, userRole);
             // Redirigir según el rol
             switch (userRole) {
                 case 1:
                     console.log('Paciente');
-                   /*  this.router.navigate(['/paciente-dashboard']); */
+                   /*  this.router.navigate(['/paciente-dashboard'], { state: { user } }); */
                     break;
                 case 2:
                     console.log('Admin');
-                    /* this.router.navigate(['/admin-dashboard']); */
+                    /* this.router.navigate(['/admin-dashboard'], { state: { user } }); */
                     break;
                 case 3:
                   console.log('Doctor');
-                    /* this.router.navigate(['/doctor-dashboard']); */
+                    /* this.router.navigate(['/doctor-dashboard'], { state: { user } }); */
                     break;
                 default:
                     console.error('Rol no reconocido');
@@ -63,7 +61,7 @@ export class LoginComponent {
             }
         },
         error => {
-            console.error('Error al iniciar sesión', error);
+            console.log('Error al iniciar sesión', error);
         }
     );
 }
