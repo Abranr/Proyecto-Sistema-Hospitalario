@@ -17,9 +17,10 @@ export class EditarCitaComponent {
   horarios: any [] =[];
   formValue: any;
   id =this.activeRouter.snapshot.paramMap.get('id');
+  
   ngOnInit(){
 
-  this.consultarHorarios();
+ 
   this.consultarPacientes();
   this.consultarMedicos();
   this.appService.getCitaId(this.id).subscribe(
@@ -83,19 +84,27 @@ export class EditarCitaComponent {
       }
     );
    }
-  
-    consultarHorarios(){
-     this.appService.getHorarioCita().subscribe(
-       (data: any[]) => {
-         console.log(data);
-         this.horarios = data;
-         
-       },
-       (error: any) => {
-         console.error('Error al obtener pacientes:', error);
-       }
-     );
-   }
+
+
+   
+   horariosMedico(event: Event){
+    const medicoSeleccionado = event.target as HTMLSelectElement;
+    const medico = medicoSeleccionado.value;
+    
+    console.log(medico);
+    this.appService.getHorarioCita(medico).subscribe(
+      (data: any[]) => {
+        console.log(data);
+        this.horarios = data;
+        
+      },
+      (error: any) => {
+        console.error('Error al obtener pacientes:', error);
+      }
+    );
+  } 
+   
+
    consultarMedicos(){
     this.appService.getMedicos().subscribe(
       (data: any[]) => {

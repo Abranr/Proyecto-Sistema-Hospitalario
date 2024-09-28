@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4 text-primary">Agregar Historial</h2>
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">Formulario de Horario</div>
+      <div class="card-body">
+        <form [formGroup]="agregarHistorial" (ngSubmit)="enviarForm()">
+          <div class="form-group mb-3">
+            <label for="medico">Paciente</label>
+            <select class="form-control" id="medico" formControlName="idPaciente" required (change)="consultarCitas($event)">
+              <option *ngFor="let paciente of pacientes" value={{paciente.idUsuario}}>{{paciente.Nombre}}</option>
+            </select>
+          </div>
+          <div class="form-group mb-3">
+            <label for="sala">Citas</label>
+            <select class="form-control" id="cita" formControlName="idCita" required>
+              <option *ngFor="let cita of citas" value={{cita.idCita}}>Cita {{cita.idCita}}</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success">Agregar Historial</button>
+        </form>
+        <div *ngIf="citas.length === 0">
+          No hay citas disponibles para el paciente seleccionado.
+      </div>
+      </div>
+    </div>
+  </div>
+   

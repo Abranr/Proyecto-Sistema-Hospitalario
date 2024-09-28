@@ -12,7 +12,7 @@
           <div class="row">
             <div class="col-md-4">
               <label for="idMedico">Médico</label>
-              <select class="form-control" id="idMedico" placeholder="Médico" formControlName="idMedico" required>
+              <select class="form-control" id="idMedico" placeholder="Médico" formControlName="idMedico" (click)="horariosMedico($event)" required>
               <option *ngFor="let medico of medicos" value={{medico.idMedico}}>{{medico.Medico}}</option>
             </select>
             </div>
@@ -29,7 +29,7 @@
             </div>
             <div class="col-md-4"></div>
               <label for="idHorario">Horario</label>
-              <select class="form-control" id="idHorario" placeholder="Horario" formControlName="idHorario" required>
+              <select class="form-control" id="idHorario" placeholder="Horario" formControlName="idHorario" required >
                 <option *ngFor="let horario of horarios" value={{horario.idHorario}}>{{horario.Horario}}</option>
               </select>
             </div>

@@ -47,7 +47,7 @@ export class CrearComponent {
 ngOnInit(){
            this.consultarMedicos();
            this.consultarPacientes();
-           this.consultarHorarios();
+           /* this.consultarHorarios(); */
          }
  
        consultarMedicos(){
@@ -75,8 +75,12 @@ ngOnInit(){
            );
           }
          
-           consultarHorarios(){
-            this.appService.getHorarioCita().subscribe(
+          horariosMedico(event: Event){
+            const medicoSeleccionado = event.target as HTMLSelectElement;
+            const medico = medicoSeleccionado.value;
+            
+            console.log(medico);
+            this.appService.getHorarioCita(medico).subscribe(
               (data: any[]) => {
                 console.log(data);
                 this.horarios = data;
@@ -86,8 +90,6 @@ ngOnInit(){
                 console.error('Error al obtener pacientes:', error);
               }
             );
-          }
- 
-  
+          } 
 
         }

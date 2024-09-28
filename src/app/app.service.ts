@@ -17,9 +17,11 @@ export class AppService {
   getConsulta(consulta: string): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl+consulta);
   }
-
   getCitaId( id: any): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl+ 'citas/'+id);
+  }
+  getCitaPacienteId( id: any): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl+ 'citas/citaPaciente/'+id);
   }
   getUsuarioId(id: any): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl +"usuarios/"+id);
@@ -29,6 +31,9 @@ export class AppService {
   }
   getSalaId(id: any): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl +"salas/"+id);
+  }
+  getHistorialId(id: any): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl +"historial/" +id);
   }
   getMedicoId(id: any): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl +"medicos/"+id);
@@ -46,7 +51,7 @@ export class AppService {
     return this.http.get<any[]>(this.apiUrl +"salas");
   }
   getHorarios(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl +"horarios");
+    return this.http.get<any[]>(this.apiUrl +"horarios/obtenerHorarios");
   }
   getUsuarios(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl +"usuarios");
@@ -60,12 +65,20 @@ export class AppService {
   getPacientes(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl+ "usuarios/pacientes");
   }
-  getHorarioCita(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl+ "horarios/obtenerHorarios");
+  getDatosRol(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl+ "usuarios/usuariosRol/1");
+  }
+  getHistorial(){
+    return this.http.get<any[]>(this.apiUrl+ "historial/historialMedico/1");
+  }
+  
+  getHorarioCita(id: any): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl+ "citas/obtenerHorarios/" + id);
   }
   getRecetas(): Observable<any[]> {
   return this.http.get<any[]>(this.apiUrl+ "recetas/obtenerRecetas");
 }
+
 
 
   postHorario(form: any):Observable<any>{
@@ -91,6 +104,9 @@ export class AppService {
     return this.http.post<any[]>(this.apiUrl + "medicos", form)
   }
 
+  postHistorial(form: any){
+    return this.http.post<any[]>(this.apiUrl + "historial/1", form)
+  }
 
   putCita(id: any, form: any):Observable<any>{
     return this.http.put<any[]>(this.apiUrlcitas + id, form)
@@ -115,6 +131,10 @@ export class AppService {
   putReceta(id: any, form: any):Observable<any>{
     return this.http.put<any[]>(this.apiUrl+'recetas/' + id, form)
   } 
+
+  putHistorial(){
+
+  }
 
   eliminarCita(id: any, form: any){
     let Options={
@@ -186,5 +206,15 @@ export class AppService {
       body: form
     }
     return this.http.delete<any[]>(this.apiUrl + "recetas/" + id, Options);
+  }
+
+  eliminarHistorial(id: any, form: any){
+    let Options={
+      headers: new HttpHeaders({
+        'Conten-type': 'application/json' 
+      }),
+      body: form
+    }
+    return this.http.delete<any[]>(this.apiUrl + "historial/" + id, Options);
   }
 }

@@ -11,7 +11,7 @@ export class ConsultarHorarioComponent {
   constructor(private appService: AppService, private router: Router){}
   horarios: any[] = [];
   ngOnInit(){
-    this.appService.getHorarioCita().subscribe(
+    this.appService.getHorarios().subscribe(
       (data: any[]) => {
         console.log(data);
         this.horarios = data;

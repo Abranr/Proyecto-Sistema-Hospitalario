@@ -35,6 +35,8 @@ import { EditarPacienteComponent } from './medicos/Formularios/editar-paciente/e
 import { EditarRecursoComponent } from './recursos/editar-recurso/editar-recurso.component';
 import { EditarMedicoComponent } from './medicos/Formularios/editar-medico/editar-medico.component';
 import { PrincipalAdminComponent } from './principal-admin/principal-admin.component';
+import { AgregarHistorialComponent } from './medicos/agregar-historial/agregar-historial.component';
+import { EditarHistorialComponent } from './medicos/editar-historial/editar-historial.component';
 
 
 @NgModule({
@@ -69,6 +71,8 @@ import { PrincipalAdminComponent } from './principal-admin/principal-admin.compo
     EditarRecursoComponent,
     EditarMedicoComponent,
     PrincipalAdminComponent,
+    AgregarHistorialComponent,
+    EditarHistorialComponent,
   ],
   imports: [
     BrowserModule,
