@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="forms-container">
+        <div class="signin-signup">
+            <form class="sign-in-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <h2 class="title">Ingresa aquí</h2>
+                <div class="input-field">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Nombre de Usuario" formControlName="username" />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Contraseña" formControlName="password" />
+                </div>
+                <input type="submit" value="Ingresa" class="btn solid" />
+            </form>
+            <form class="sign-up-form" [formGroup]="nuevoForm" (ngSubmit)="postForm(nuevoForm)">
+                <h2 class="title">Inscribete aqui</h2>
+                <div class="input-field">
+                    <i class="fas fa-envelope" for="nombres"></i>
+                    <input id="nombres" type="text" placeholder="Ingresa tus Nombres" formControlName="nombres"
+                        name="nombres" required />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-envelope" for="apellidos"></i>
+                    <input id="apellidos" type="text" placeholder="Ingresa tus Apellidos" formControlName="apellidos"
+                        name="apellidos" required />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-user" for="username"></i>
+                    <input type="text" placeholder="Ingresa un Nombre de Usuario" id="username"
+                        formControlName="username" name="username" required />
+                </div>
+                <div class="input-field fecha" for="fechaNacimiento">
+                    <i class="fas fa-envelope"></i>
+                    <input type="date" placeholder="Ingresa tu Fecha de Nacimiento" id="fechaNacimiento" type="date"
+                        formControlName="fechaNacimiento" name="fechaNacimiento" required />
+                </div>
+                <div class="input-field correo">
+                    <i class="fas fa-envelope " for="email"></i>
+                    <input type="email" placeholder="Ingresa tu Correo" id="email" formControlName="email" name="email"
+                        required />
+                </div>
+                <div class="input-field telefono">
+                    <i class="fas fa-envelope"></i>
+                    <input type="number" placeholder="Ingresa tu Telefono" formControlName="numero" id="numero"
+                        name="numero" required />
+                </div>
+                <div class="input-field dpi">
+                    <i class="fas fa-envelope" for="dpi"></i>
+                    <input type="text" placeholder="Ingresa tu DPI" id="dpi" formControlName="dpi" name="dpi"
+                        required />
+                </div>
+                <div class="input-field">
+                    <i class="fas fa-lock" for="password"></i>
+                    <input type="password" placeholder="Ingresa tu Contraseña" id="password" formControlName="password"
+                        name="password" required />
+                </div>
+                <!-- <div class="input-field idRol">
+                    <i class="fas fa-lock" for="idRol"></i>
+                    <input type="number" placeholder="coloca 1" id="idRol" formControlName="idRol" name="idRol"
+                        required />
+                </div> -->
+               <!--  <div class="input-field estado">
+                    <i class="fas fa-lock" for="estado"></i>
+                    <input type="number" placeholder="ingresa 0 o 1" id="estado" formControlName="estado" name="estado"
+                        required />
+                </div> -->
+
+                <input type="submit" class="btn" value="inscribete" />
+            </form>
+        </div>
+    </div>
+<!-- Estos son los botones que cambia de el formulario de inicio al de entrada -->
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>¿Eres Nuevo?</h3>
+                <p>Si deseas agendar una cita y llevar control de tu salud, registrate</p>
+                <button class="btn transparent" id="sign-up-btn">Inscribete</button>
+            </div>
+        </div>
+        <div class="panel right-panel">
+            <div class="content">
+                <h3>Inicio de Sesion</h3>
+                <p>Si ya tienes una cuenta preciona aquí.</p>
+                <button class="btn transparent" id="sign-in-btn">Ingresa aqui</button>
+            </div>
+        </div>
+    </div>
+</div>

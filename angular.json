@@ -39,7 +39,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": ["src/assets/componentes.js"],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -110,6 +110,6 @@
     }
   },
   "cli": {
-    "analytics": "6b137d05-b433-4223-8195-f0b043260421"
+    "analytics": "a04beab5-bcd5-4aba-a424-39609eccb08a"
   }
 }
