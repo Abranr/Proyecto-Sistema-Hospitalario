@@ -27,9 +27,10 @@ import { PrincipalAdminComponent } from './principal-admin/principal-admin.compo
 import { AgregarHistorialComponent } from './medicos/agregar-historial/agregar-historial.component';
 import { EditarHistorialComponent } from './medicos/editar-historial/editar-historial.component';
 import { ConsultasAnterioresComponent } from './medicos/consultas-anteriores/consultas-anteriores.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'agregar-cita', component: CrearComponent },
   { path: 'editar-cita/:id', component: EditarCitaComponent },
   { path: 'consultar-cita', component: ConsultarCitaComponent },
@@ -54,8 +55,42 @@ const routes: Routes = [
   { path: 'editar-receta/:id', component: EditarRecetaComponent },
   { path: 'agregar-historial', component: AgregarHistorialComponent },
   { path: 'editar-historial/:id', component: EditarHistorialComponent },
-  { path: 'inicio', component: PrincipalAdminComponent },
-  
+  { path: 'consultas', component: PrincipalAdminComponent },
+  { path: 'inicio', component: AdministradorComponent },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'inicio',
+    component: AdministradorComponent,
+    children: [
+     
+      { path: 'agregar-cita', component: CrearComponent },
+      { path: 'editar-cita/:id', component: EditarCitaComponent },
+      { path: 'consultar-cita', component: ConsultarCitaComponent },
+      { path: 'agregar-usuario', component: FormularioPacienteComponent },
+      { path: 'editar-usuario/:id', component: EditarPacienteComponent },
+      { path: 'consultar-usuario', component: ConsultarUsuariosComponent },
+      { path: 'consultar-especialidad', component: ConsultarEspecialidadComponent },
+      { path: 'agregar-especialidad', component: AgregarEspecialidadComponent },
+      { path: 'editar-especialidad/:id', component: EditarEspecialidadComponent },
+      { path: 'consultar-recursos', component: ConsultarRecursosComponent },
+      { path: 'agregar-recurso', component: GestionRecursosComponent },
+      { path: 'editar-recurso/:id', component: EditarRecursoComponent },
+      { path: 'consultar-medico', component: MedicosEspecialidadesComponent },
+      { path: 'agregar-medico', component: FormularioMedicoComponent },
+      { path: 'editar-medico/:id', component: EditarMedicoComponent },
+      { path: 'consultar-horario', component: ConsultarHorarioComponent },
+      { path: 'agregar-horario', component: FormularioHorarioComponent },
+      { path: 'editar-horario/:id', component: GestionarHorariosComponent },
+      { path: 'consultar-receta', component: ConsultarRecetaComponent },
+      { path: 'agregar-receta', component: AgregarRecetaComponent },
+      { path: 'consultar-historial', component: ConsultasAnterioresComponent },
+      { path: 'editar-receta/:id', component: EditarRecetaComponent },
+      { path: 'agregar-historial', component: AgregarHistorialComponent },
+      { path: 'editar-historial/:id', component: EditarHistorialComponent },
+      { path: 'consultas', component: PrincipalAdminComponent },
+
+    ]
+  }
 
 ];
 

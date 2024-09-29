@@ -9,7 +9,7 @@ import { PacienteI } from '../../modelos/paciente.interface';
 })
 export class ApiService {
   private url: string = 'http://localhost:6500';
-
+  private user: any; 
   constructor(private http: HttpClient) {}
 
   loginByEmail(form:LoginI):Observable<any>{
@@ -22,4 +22,14 @@ export class ApiService {
     let direccion = this.url + '/usuarios';
     return this.http.post(direccion, form);
   }
+
+  setUser(user: any): void {
+    this.user = user;
+  }
+
+  getUser(): any {
+    return this.user;
+  }
+
+
 }

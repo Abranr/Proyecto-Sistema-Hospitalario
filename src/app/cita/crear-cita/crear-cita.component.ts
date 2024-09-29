@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import {Router, ActivatedRoute} from '@angular/router'; 
 import { AppService } from '../../app.service';
+import { PacienteI } from '../../modelos/paciente.interface';
 
 @Component({
   selector: 'app-crear-cita',
@@ -44,7 +45,8 @@ export class CrearComponent {
       }
   });
   }
-ngOnInit(){
+ngOnInit()
+{          
            this.consultarMedicos();
            this.consultarPacientes();
            /* this.consultarHorarios(); */
@@ -60,8 +62,20 @@ ngOnInit(){
            (error: any) => {
              console.error('Error al obtener medicos:', error);
            }
-         );}
+         );
+        }
  
+       /*  consultarMedicosId(){
+          this.appService.getMedicosId().subscribe(
+            (data: any[]) => {
+              console.log(data);
+              this.medicos = data;
+              
+            },
+            (error: any) => {
+              console.error('Error al obtener medicos:', error);
+            }
+          );} */
          consultarPacientes(){
            this.appService.getPacientes().subscribe(
              (data: any[]) => {
@@ -87,7 +101,9 @@ ngOnInit(){
                 
               },
               (error: any) => {
-                console.error('Error al obtener pacientes:', error);
+                console.error('Error al obtener horarios:', error);
+                this.CrearCita.patchValue({ idHorario: null }); 
+              this.horarios = [];
               }
             );
           } 

@@ -21,39 +21,45 @@ export class LoginComponent {
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
-  
+  private user: any;
   constructor(
     private api: ApiService,
     private router: Router,
     private formBuilder: FormBuilder
   ) {}
 
-  onLogin() {
+ /*  onLogin() {
     const formValue = this.loginForm.value;
     const loginData: LoginI = {
       username: formValue.username ?? '',
       password: formValue.password ?? '',
+      
     };
 
+
+    console.log(this.loginForm.value);
+    console.log(loginData);
     this.api.loginByEmail(loginData).subscribe(
         data => {
 
-          let user = data;;
+          let user = data;
+          this.user = data; 
           let userRole = user.idRol;
           console.log(user.username, userRole);
             // Redirigir según el rol
             switch (userRole) {
                 case 1:
                     console.log('Paciente');
-                   /*  this.router.navigate(['/paciente-dashboard'], { state: { user } }); */
+                   this.router.navigate(['/inicio/consultas'], { state: { user } }); 
+
                     break;
                 case 2:
                     console.log('Admin');
-                    /* this.router.navigate(['/admin-dashboard'], { state: { user } }); */
+                    /* this.router.navigate(['/admin-dashboard'], { state: { user } }); 
                     break;
                 case 3:
                   console.log('Doctor');
-                    /* this.router.navigate(['/doctor-dashboard'], { state: { user } }); */
+                    /* this.router.navigate(['/doctor-dashboard'], { state: { user } }); 
                     break;
                 default:
                     console.error('Rol no reconocido');
@@ -64,7 +70,45 @@ export class LoginComponent {
             console.log('Error al iniciar sesión', error);
         }
     );
-}
+} */
+
+
+    onLogin() {
+      const formValue = this.loginForm.value;
+      const loginData: LoginI = {
+        username: formValue.username ?? '',
+        password: formValue.password ?? '',
+      };
+    
+      this.api.loginByEmail(loginData).subscribe(data => {
+        let user = data;
+        let userRole = user.idRol;
+    
+        // Guarda el objeto user en el servicio
+        this.api.setUser(user);
+    
+        // Redirige según el rol
+        switch (userRole) {
+          case 1:
+            console.log('Paciente');
+            this.router.navigate(['/inicio/consultas']);
+            break;
+          case 2:
+            console.log('Admin');
+            this.router.navigate(['/admin-dashboard']);
+            break;
+          case 3:
+            console.log('Doctor');
+            this.router.navigate(['/doctor-dashboard']);
+            break;
+          default:
+            console.error('Rol no reconocido');
+            break;
+        }
+      }, error => {
+        console.error('Error al iniciar sesión', error);
+      });
+    }
 
   // Formulario para la inscripción de un nuevo usuario
   nuevoForm = this.formBuilder.group({
@@ -106,4 +150,6 @@ export class LoginComponent {
       }
     );
   }
+
+  
 }
