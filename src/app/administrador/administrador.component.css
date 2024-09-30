@@ -1,261 +1,32 @@
-/* @import url("https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css");
-@import url("https://v5.getbootstrap.com/docs/5.0/examples/dashboard/");
-html, body{
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    background-color: #ECFCFF;
-}
-main{
-    background-color: #ECFCFF;
-}
-#sidebarMenu {
-    padding: 0%;
-
-} /*
-.search{
-
-}
-.busqueda{
-    border-radius: 15%;
-    background-color: white;
-    width: 90%;
-    padding: 1%;
-    outline: none;
-    border: none;
-    margin-left: 7%;
+body {
+  background-color: #cffafe;
+  font-family: Arial, sans-serif;
 }
 
-.busqueda:focus{
-    outline: none;
-}
-
-
-.navbar-b{
-    background-color: #A5F3FC;
-}
-
-
-.div-brand{
-    background-color: #083344;
-    border: solid 5px #083344;
-}
-
-.brand{
-    display: inline-block;
-    padding: 0.3125rem 0;
-    margin-right: 1rem;
-    font-size: 1.25rem;
-    line-height: 1.5;
-    white-space: nowrap;
-    text-decoration: none;
-    color: white;
-
-}
-
-
-.nav-menu{
-    height: 100%;
-
-}
-
-.nav{
-    background-color: #156775;
-    border-bottom: 0;
-    height: 100%;
-}
-.nav a{
-    color: white;
-    height: 100%;
-}
-
-.nav-link-btn{
-    background-color: #156775;
-    border-radius: 15%;
-    margin: 0 2%;
-    text-align: center;
-}
-
-.sidebarMenu a{
-    color: black;
-}
-.sidebarMenu a:hover{
-    color: white;
-}
-
-.sidebarMenu a:focus{
-    color: white;
-}
-
-.container-fluid{
-    flex: 1;
-    background-color: #ECFCFF;
-}
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-  }
-
-  body {
-    font-size: .875rem;
-    background-color: #ECFCFF;
-  }
-
-  .feather {
-    width: 16px;
-    height: 16px;
-    vertical-align: text-bottom;
-  }
-
-  /* Sidebar
-
-  .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    /* Behind the navbar
-    padding: 48px 0 0;
-    /* Height of navbar
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-  }
-
-  @media (max-width: 767.98px) {
-    .sidebar {
-      top: 5rem;
-    }
-  }
-
-  .sidebar-sticky {
-    position: relative;
-    top: 0;
-    height: calc(100vh - 48px);
-    padding-top: .5rem;
-    overflow-x: hidden;
-    overflow-y: auto;
-    Scrollable contents if viewport is shorter than content.
-  }
-
-  .sidebar .nav-link {
-    font-weight: 500;
-     color: #333;
-  }
-
-  .sidebar .nav-link .feather {
-    margin-right: 4px;
-    color: #727272;
-  }
-
-  .sidebar .nav-link.active {
-    color: #007bff;
-  }
-
-  .sidebar .nav-link:hover .feather,
-  .sidebar .nav-link.active .feather {
-    color: inherit;
-  }
-
-  .sidebar-heading {
-    font-size: .75rem;
-    text-transform: uppercase;
-  }
-
-
-  .navbar-brand {
-    padding-top: .75rem;
-    padding-bottom: .75rem;
-    font-size: 1rem;
-    background-color: rgba(0, 0, 0, .25);
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
-  }
-
-  .navbar .navbar-toggler {
-    top: .25rem;
-    right: 1rem;
-  }
-
-  .navbar  {
-    padding: .75rem 1rem;
-    border-width: 0;
-    border-radius: 0;
-  }
-
-  .form-control-dark {
-    color: #fff;
-    background-color: rgba(255, 255, 255, .1);
-    border-color: rgba(255, 255, 255, .1);
-  }
-
-  .form-control-dark:focus {
-    border-color: transparent;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
-  } */
-
-  @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css");
-@import url("https://kit.fontawesome.com/a076d05399.js");
-body{
-  background-color: #ECFCFF;
-}
-a{
-  pointer-events: visible;
-}
-.menu-header {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-.vh-100 {
-  height: 100vh;
-}
 .bg-sidebar {
-  background-color: #2f3131; /* Azul oscuro para la barra lateral */
+  background-color: #164e63; /* Color del sidebar */
 }
-.card {
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 15px 30px rgba(252, 252, 252, 0.2);
+.bg-sidebar .nav-link {
+  color: black; /* Color del texto */
+  transition: background-color 0.3s ease; /* Suaviza la transición */
 }
 
-/* Estilos para los títulos de las tarjetas */
-.card-title {
-  transition: color 0.3s, text-shadow 0.3s;
+.bg-sidebar .nav-link:hover {
+  background-color:#0891b2; /* Color de fondo al pasar el mouse */
+  color: black;
 }
 
-.card:hover .card-title {
-  color: #ff5733; /* Cambia el color según tu preferencia */
-  text-shadow: 0 2px 10px rgba(248, 242, 242, 0.5);
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
 }
 
-/* Efecto de parpadeo en el texto */
-.card-text {
-  transition: opacity 0.3s;
-}
-
-.card:hover .card-text {
-  opacity: 0.7;
-}
-.btn {
-  transition: background-color 0.3s, transform 0.3s;
-}
-.btn:hover {
-  transform: scale(1.05);
-}
 .dashboard-container {
-  min-height: calc(100vh - 150px); /* Ajusta según sea necesario */
-  margin-top: 20px; /* Eleva el dashboard */
+  padding: 20px; /* Espaciado para el contenedor principal */
+}
+
+footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
 }

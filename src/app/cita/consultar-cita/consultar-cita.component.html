@@ -1,47 +1,31 @@
-<main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-    <div
-      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-      <h1 class="h2">Citas</h1>
-      <div class="btn-toolbar mb-2 mb-md-0">
-        <div class="btn-group mr-2">
-          <button type="button" class="btn btn-sm btn-outline-secondary">Agregar</button>
-          <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-        </div>
-        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-          <span data-feather="calendar"></span>
-          This week
-        </button>
-      </div>
-    </div>
-
-    <!-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
--->
-    <h2>Lista de médicos</h2>
-
- 
-    <div class="table-responsive">
-      <table class="table table-striped table-sm">
-        <thead>
-          <tr>
-            <th>Paciente</th>
-            <th>Medico</th>
-            <th>Fecha</th>
-            <th>Estado</th>
-            <th>Accion</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let cita of citas">
-            <td> {{ cita.Paciente}} </td>
-            <td> {{ cita.Medico}} </td>   
-            <td> {{ cita.fechaCita}} </td>
-            <td> {{ cita.estado}} </td>
-            <td>
-              <button class="btn btn-primary btn-sm" (click)="editar(cita.idCita)" >Editar</button>
-          </tr>
-          
-        </tbody>
-      </table>
-    </div>
-  </main>
-
+<div class="container">
+  <h1 class="h2 text-left">
+    <i class="text-center mb-4 text-primary"></i> Consultar Citas
+  </h1>
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th class="text-left">Paciente</th>
+          <th class="text-left">Medico</th>
+          <th class="text-left">Fecha</th>
+          <th class="text-left">Estado</th>
+          <th class="text-left">Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cita of citas">
+          <td class="text-left"> {{ cita.Paciente}} </td>
+          <td class="text-left"> {{ cita.Medico}} </td>
+          <td class="text-left"> {{ cita.fechaCita}} </td>
+          <td class="text-left"> {{ cita.estado}} </td>
+          <td class="text-left">
+            <button class="btn btn-primary btn-sm" (click)="editar(cita.idCita)" >
+              <i class="fas fa-edit"></i> Editar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

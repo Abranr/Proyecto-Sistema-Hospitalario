@@ -1,24 +1,27 @@
+<!-- Formulario de Agregar Receta -->
+<div class="container mt-5">
+  <!-- Título personalizado -->
+  <h2 class="text-center mb-4 custom-title">Agregar Receta</h2>
 
-    <!-- Formulario de Agregar Médico -->
-    <div class="container mt-5">
-      <h2 class="text-center mb-4 text-primary">Agregar receta</h2>
-      <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">Formulario de Receta</div>
-        <div class="card-body">
-          <form [formGroup]="crearReceta" (ngSubmit)="enviarForm()">
-            <div class="form-group mb-3">
-              <label for="idCita">Cita - Paciente</label>
-              <select class="form-control" id="idCita" formControlName="idCita" required>
-                <option *ngFor="let cita of citas" value={{cita.idCita}}>Cita: {{cita.idCita}} Paciente: {{cita.Paciente}}</option>
-              </select>
-            </div>
-            <div class="form-group mb-3">
-              <label for="usuario">Descripción</label>
-              <input type="tel" class="form-control" id="descripcion"  formControlName="descripcion"  required>
-            </div>
-            <button type="submit" class="btn btn-success">Guardar Receta</button>
-          </form>
+  <div class="card shadow-sm">
+    <!-- Encabezado personalizado -->
+    <div class="custom-header p-4 rounded-t-lg">Formulario de Receta</div>
+
+    <div class="card-body">
+      <form [formGroup]="crearReceta" (ngSubmit)="enviarForm()">
+        <div class="form-group mb-3">
+          <label for="idCita">Cita - Paciente</label>
+          <select class="form-control" id="idCita" formControlName="idCita" required>
+            <option *ngFor="let cita of citas" [value]="cita.idCita">Cita: {{cita.idCita}} Paciente: {{cita.Paciente}}</option>
+          </select>
         </div>
-      </div>
+        <div class="form-group mb-3">
+          <label for="descripcion">Descripción</label>
+          <input type="text" class="form-control" id="descripcion" formControlName="descripcion" required>
+        </div>
+        <!-- Botón personalizado -->
+        <button type="submit" class="custom-button">Guardar Receta</button>
+      </form>
     </div>
-  
+  </div>
+</div>

@@ -1,41 +1,35 @@
+<div class="container-fluid mt-5">
+  <h2 class="text-left">Consultar Pacientes</h2>
 
-  
-    <div class="container mt-5">
-      <h2 class="text-center mb-4 text-primary">Gestión de Usuarios</h2>
-  
-      <!-- Tabla para mostrar horarios -->
-      <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-          <thead class="thead-light">
-            <tr>
-              <th>Nombre</th>
-              <th>Apellido</th>
-              <th>DPI</th>
-              <th>Fecha de Nacimiento</th>
-              <th>Email</th>
-              <th>Número</th>
-              <th>Rol</th>
-            </tr>
-          </thead>
-          <tbody>
-            
-            <tr *ngFor="let usuario of usuarios">
-              <td>{{ usuario.nombres }}</td>
-              <td>{{ usuario.apellidos }}</td>
-              <td>{{ usuario.dpi }}</td>
-              <td>{{ usuario.fechaNacimiento }}</td>
-              <td>{{ usuario.email }}</td>
-              <td>{{ usuario.numero }}</td>
-              <td>{{ usuario.descripcion }}</td>
-              <td>
-                <button class="btn btn-primary btn-sm" (click)="editar(usuario.idUsuario)">Editar</button>
-            
-            </td>
-            </tr>
-           
-          </tbody>
-        </table>
-      </div>
-    </div>
-  
-  
+  <!-- Tabla responsiva para todos los tamaños de pantalla -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-light">
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th class="d-none d-sm-table-cell">DPI</th>
+          <th>Fecha de Nacimiento</th>
+          <th class="d-none d-sm-table-cell">Email</th>
+          <th>Número</th>
+          <th class="d-none d-md-table-cell">Rol</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td class="text-truncate">{{ usuario.nombres }}</td>
+          <td class="text-truncate">{{ usuario.apellidos }}</td>
+          <td class="d-none d-sm-table-cell">{{ usuario.dpi }}</td>
+          <td>{{ usuario.fechaNacimiento }}</td>
+          <td class="d-none d-sm-table-cell text-truncate">{{ usuario.email }}</td>
+          <td>{{ usuario.numero }}</td>
+          <td class="d-none d-md-table-cell">{{ usuario.descripcion }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm" (click)="editar(usuario.idUsuario)">Editar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

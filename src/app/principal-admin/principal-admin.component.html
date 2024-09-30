@@ -1,75 +1,90 @@
-
-<h3>{{ user?.idUsuario }}</h3>
-<div class="container-fluid dashboard-container d-flex justify-content-center align-items-start flex-column mt-3">
-    <div class="row text-center w-100">
-        <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<h3 class="text-center">{{ user?.idUsuario }}</h3>
+<div class="container-fluid dashboard-container d-flex justify-content-center align-items-center flex-column mt-1">
+    <div class="row text-center justify-content-start w-100 g-4"> <!-- Clase g-4 para añadir separación -->
+        <div class="col-12 col-lg-10 px-md-4">
             <h2 class="text-center my-4">Panel de Visualización Administrador</h2>
-            
-            <div class="row justify-content-center">
-    <!-- Card for today's appointments -->
-    <div class="col-md-4 mb-4">
-        <div class="card shadow-lg rounded" style="background: #f0f9ff; height: 300px;">
-            <div class="card-body d-flex flex-column justify-content-between text-center p-4">
-                <h5 class="card-title text-primary">Citas Disponibles</h5>
-                <p class="card-text">Muestra el horario disponible para las citas.</p>
-                <button  class="btn btn-primary mx-auto" style="width: 150px;" (click)="citas()">Ver Citas</button>
-            </div>
-        </div>
-    </div>
 
-    <!-- Card for active patients -->
-    <div class="col-md-4 mb-4">
-        <div class="card shadow-lg rounded" style="background: #e6f7e6; height: 300px;">
-            <div class="card-body d-flex flex-column justify-content-between text-center p-4">
-                <h5 class="card-title text-success">Pacientes</h5>
-                <p class="card-text">Pacientes registrados en el sistema.</p>
-                <button class="btn btn-success mx-auto" style="width: 150px;" (click)="pacientes()">Ver Pacientes</button>
-            </div>
-        </div>
-    </div>
+            <div class="row justify-content-center g-4"> <!-- Clase g-4 para el gap entre las tarjetas -->
+                <!-- Card for today's appointments -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex">
+                    <div class="card shadow-lg rounded border-0 w-100 citas-card custom-card" style="min-height: 250px;">
+                        <div class="card-body d-flex flex-column justify-content-between text-center p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-calendar-check"></i> Citas Disponibles
+                            </h5>
+                            <p class="card-text">Muestra el horario disponible para las citas.</p>
+                            <button class="btn btn-primary mx-auto btn-lg" (click)="citas()">Ver Citas</button>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Card for available rooms -->
-    <div class="col-md-4 mb-4">
-        <div class="card shadow-lg rounded" style="background: #e6f9ff; height: 300px;">
-            <div class="card-body d-flex flex-column justify-content-between text-center p-4">
-                <h5 class="card-title text-info">Salas</h5>
-                <p class="card-text">Salas de consulta que están actualmente disponibles.</p>
-                <button class="btn btn-info mx-auto" style="width: 150px;" (click)="salas()">Ver Salas</button>
-            </div>
-        </div>
-    </div>
-</div>
+                <!-- Card for active patients -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex">
+                    <div class="card shadow-lg rounded border-0 w-100 pacientes-card custom-card" style="min-height: 250px;">
+                        <div class="card-body d-flex flex-column justify-content-between text-center p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-user-injured"></i> Pacientes
+                            </h5>
+                            <p class="card-text">Pacientes registrados en el sistema.</p>
+                            <button class="btn btn-success mx-auto btn-lg" (click)="pacientes()">Ver Pacientes</button>
+                        </div>
+                    </div>
+                </div>
 
-<div class="row justify-content-center">
-    <!-- Card for pending reservations -->
-    <div class="col-md-4 mb-4">
-        <div class="card shadow-lg rounded" style="background: #fff3cd; height: 300px;">
-            <div class="card-body d-flex flex-column justify-content-between text-center p-4">
-                <h5 class="card-title text-warning">Reservas</h5>
-                <p class="card-text">Las reservas que están hechas por los pacientes.</p>
-                <button class="btn btn-warning mx-auto" style="width: 150px;"(click)="horarios()">Ver las reservas</button>
+                <!-- Card for available rooms -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex">
+                    <div class="card shadow-lg rounded border-0 w-100 salas-card custom-card" style="min-height: 250px;">
+                        <div class="card-body d-flex flex-column justify-content-between text-center p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-door-open"></i> Salas
+                            </h5>
+                            <p class="card-text">Salas de consulta que están actualmente disponibles.</p>
+                            <button class="btn btn-info mx-auto btn-lg" (click)="salas()">Ver Salas</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Card for issued prescriptions -->
-    <div class="col-md-4 mb-4">
-        <div class="card shadow-lg rounded" style="background: #f8d7da; height: 300px;">
-            <div class="card-body d-flex flex-column justify-content-between text-center p-4">
-                <h5 class="card-title text-danger">Recetas</h5>
-                <p class="card-text">Recetas médicas emitidas por los doctores.</p>
-                <button class="btn btn-danger mx-auto" style="width: 150px;" (click)="recetas()">Ver Recetas</button>
-            </div>
-        </div>
-    </div>
+            <div class="row justify-content-center g-4"> <!-- Clase g-4 para el gap entre las tarjetas -->
+                <!-- Card for pending reservations -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex">
+                    <div class="card shadow-lg rounded border-0 w-100 reservas-card custom-card" style="min-height: 250px;">
+                        <div class="card-body d-flex flex-column justify-content-between text-center p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-calendar-alt"></i> Reservas
+                            </h5>
+                            <p class="card-text">Las reservas que están hechas por los pacientes.</p>
+                            <button class="btn btn-warning mx-auto btn-lg" (click)="horarios()">Ver las reservas</button>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Card for active doctors -->
-    <div class="col-md-4 mb-4">
-        <div class="card shadow-lg rounded" style="background: #d6d8db; height: 300px;">
-            <div class="card-body d-flex flex-column justify-content-between text-center p-4">
-                <h5 class="card-title text-secondary">Médicos</h5>
-                <p class="card-text">Médicos actualmente trabajando en la clínica.</p>
-                <button class="btn btn-secondary mx-auto" style="width: 150px;" (click)="medicos()">Ver Médicos</button>
+                <!-- Card for issued prescriptions -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex">
+                    <div class="card shadow-lg rounded border-0 w-100 recetas-card custom-card" style="min-height: 250px;">
+                        <div class="card-body d-flex flex-column justify-content-between text-center p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-prescription-bottle-alt"></i> Recetas
+                            </h5>
+                            <p class="card-text">Recetas médicas emitidas por los doctores.</p>
+                            <button class="btn btn-danger mx-auto btn-lg" (click)="recetas()">Ver Recetas</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card for active doctors -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex">
+                    <div class="card shadow-lg rounded border-0 w-100 medicos-card custom-card" style="min-height: 250px;">
+                        <div class="card-body d-flex flex-column justify-content-between text-center p-4">
+                            <h5 class="card-title">
+                                <i class="fas fa-user-md"></i> Médicos
+                            </h5>
+                            <p class="card-text">Médicos actualmente trabajando en la clínica.</p>
+                            <button class="btn btn-secondary mx-auto btn-lg" (click)="medicos()">Ver Médicos</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
