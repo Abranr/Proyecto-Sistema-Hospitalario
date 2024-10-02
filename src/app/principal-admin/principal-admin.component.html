@@ -1,9 +1,11 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-<h3 class="text-center">{{ user?.idUsuario }}</h3>
+<h3 class="text-center">Bienvenido/a {{ user?.nombres }} {{user.apellidos}}</h3>
 <div class="container-fluid dashboard-container d-flex justify-content-center align-items-center flex-column mt-1">
     <div class="row text-center justify-content-start w-100 g-4"> <!-- Clase g-4 para añadir separación -->
-        <div class="col-12 col-lg-10 px-md-4">
-            <h2 class="text-center my-4">Panel de Visualización Administrador</h2>
+        <div class="col-12 col-lg-10 px-md-4" >
+            <h2  *ngIf="user.idRol=== 1"class="text-center my-4">Panel de Visualización Paciente</h2>
+            <h2  *ngIf="user.idRol=== 2"class="text-center my-4">Panel de Visualización Administrador</h2>
+            <h2  *ngIf="user.idRol=== 3"class="text-center my-4">Panel de Visualización Médico</h2>
 
             <div class="row justify-content-center g-4"> <!-- Clase g-4 para el gap entre las tarjetas -->
                 <!-- Card for today's appointments -->
@@ -20,7 +22,7 @@
                 </div>
 
                 <!-- Card for active patients -->
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex" *ngIf="user.idRol=== 2">
                     <div class="card shadow-lg rounded border-0 w-100 pacientes-card custom-card" style="min-height: 250px;">
                         <div class="card-body d-flex flex-column justify-content-between text-center p-4">
                             <h5 class="card-title">
@@ -33,7 +35,7 @@
                 </div>
 
                 <!-- Card for available rooms -->
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex" *ngIf="user.idRol=== 2">
                     <div class="card shadow-lg rounded border-0 w-100 salas-card custom-card" style="min-height: 250px;">
                         <div class="card-body d-flex flex-column justify-content-between text-center p-4">
                             <h5 class="card-title">
@@ -46,9 +48,9 @@
                 </div>
             </div>
 
-            <div class="row justify-content-center g-4"> <!-- Clase g-4 para el gap entre las tarjetas -->
+            <div class="row justify-content-center g-4" > <!-- Clase g-4 para el gap entre las tarjetas -->
                 <!-- Card for pending reservations -->
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex" *ngIf="user.idRol=== 2">
                     <div class="card shadow-lg rounded border-0 w-100 reservas-card custom-card" style="min-height: 250px;">
                         <div class="card-body d-flex flex-column justify-content-between text-center p-4">
                             <h5 class="card-title">
@@ -74,7 +76,7 @@
                 </div>
 
                 <!-- Card for active doctors -->
-                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex" *ngIf="user.idRol=== 2">
                     <div class="card shadow-lg rounded border-0 w-100 medicos-card custom-card" style="min-height: 250px;">
                         <div class="card-body d-flex flex-column justify-content-between text-center p-4">
                             <h5 class="card-title">

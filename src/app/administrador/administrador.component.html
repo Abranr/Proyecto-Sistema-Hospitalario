@@ -28,18 +28,38 @@
 
 <!-- Main Content -->
 <div class="content">
-    <aside class="bg-sidebar text-white vh-100 p-4 d-none d-md-block">
+    <aside class="bg-sidebar text-white vh-100 p-4 d-none d-md-block" [ngSwitch]="user.idRol">
         <div class="menu-header d-flex align-items-center mb-4">
             <i class="fas fa-user-circle fs-2 me-2"></i>
-            <span><a class="nav-link text-white" routerLink="/inicio/consultas">Administrador</a></span>
+            <span>
+                <a class="nav-link text-white" routerLink="/inicio/consultas" *ngIf="user.idRol=== 1" >Paciente</a>
+                <a class="nav-link text-white" routerLink="/inicio/consultas" *ngIf="user.idRol=== 2" >Administrador</a>
+                <a class="nav-link text-white" routerLink="/inicio/consultas" *ngIf="user.idRol=== 3" >Médico</a>
+            </span>
         </div>
-        <ul class="nav flex-column mb-4">
+        <ul class="nav flex-column mb-4" *ngSwitchCase=1 >
+
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/consultas"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-cita"><i class="fas fa-calendar-check"></i> Agendar cita</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/consultar-cita"><i class="fas fa-stethoscope"></i> Consultar cita</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/consultar-receta"><i class="fas fa-user-md"></i> Consultar recetas</a></li>
+        </ul>
+
+        <ul class="nav flex-column mb-4" *ngSwitchCase=2 >
+
             <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/consultas"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
             <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-cita"><i class="fas fa-calendar-check"></i> Agendar cita</a></li>
             <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-usuario"><i class="fas fa-user-plus"></i> Agregar usuario</a></li>
             <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-especialidad"><i class="fas fa-stethoscope"></i> Agregar especialidad</a></li>
             <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-medico"><i class="fas fa-user-md"></i> Agregar médico</a></li>
             <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-horario"><i class="fas fa-clock"></i> Agregar horario</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-historial"><i class="fas fa-file-medical"></i> Agregar historial</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-receta"><i class="fas fa-prescription-bottle"></i> Agregar recetas</a></li>
+        </ul>
+        <ul class="nav flex-column mb-4" *ngSwitchCase=3 >
+
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/consultas"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-cita"><i class="fas fa-calendar-check"></i> Agendar cita</a></li>
             <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-historial"><i class="fas fa-file-medical"></i> Agregar historial</a></li>
             <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-receta"><i class="fas fa-prescription-bottle"></i> Agregar recetas</a></li>
         </ul>

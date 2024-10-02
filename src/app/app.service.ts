@@ -66,6 +66,24 @@ export class AppService {
   getCitas(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl+ "citas/obtenerCitas");
   }
+
+  //verificar consulta y agregar endpoint
+  getCitasIdMedico(id: any): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl+ "medicos/consultarCitas/" + id);
+  }
+   //Citas por usuario
+  getCitasIdPaciente(id: any): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl+ "/usuarios/consultarCitas/"+id);
+  }
+  //verificar consulta y agregar endpoint
+  getHistorialPaciente(){
+    return this.http.get<any[]>(this.apiUrl+ "historial/historialMedico/1");
+  }
+  //verificar consulta y agregar endpoint
+  getRecetaPaciente(){
+    return this.http.get<any[]>(this.apiUrl+ "historial/historialMedico/1");
+  }
+ 
   getPacientes(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl+ "usuarios/usuariosRol/1");
   }
@@ -111,7 +129,7 @@ export class AppService {
   }
 
   postHistorial(form: any){
-    return this.http.post<any[]>(this.apiUrl + "historial/1", form)
+    return this.http.post<any[]>(this.apiUrl + "historial", form)
   }
 
   putCita(id: any, form: any):Observable<any>{

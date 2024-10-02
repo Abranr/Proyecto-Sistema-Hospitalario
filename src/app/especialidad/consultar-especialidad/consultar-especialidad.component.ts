@@ -24,6 +24,6 @@ export class ConsultarEspecialidadComponent {
 
 
     editar(id: any){
-      this.router.navigate(['editar-especialidad', id])
+      this.router.navigate(['inicio/editar-especialidad', id])
     }
 }

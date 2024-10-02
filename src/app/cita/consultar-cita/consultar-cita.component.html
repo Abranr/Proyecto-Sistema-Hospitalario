@@ -19,8 +19,8 @@
           <td class="text-left"> {{ cita.Medico}} </td>
           <td class="text-left"> {{ cita.fechaCita}} </td>
           <td class="text-left"> {{ cita.estado}} </td>
-          <td class="text-left">
-            <button class="btn btn-primary btn-sm" (click)="editar(cita.idCita)" >
+          <td class="text-left" *ngIf="user.idRol === 2 || user.idRol === 3">
+            <button class="btn btn-primary btn-sm"  *ngIf="user.idRol=== 2" (click)="editar(cita.idCita)" >
               <i class="fas fa-edit"></i> Editar
             </button>
           </td>

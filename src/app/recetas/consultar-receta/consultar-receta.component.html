@@ -19,8 +19,8 @@
             <td>{{receta.idCita}}</td>
             <td>{{receta.Paciente}}</td>
             <td>{{receta.descripcion}}</td>
-            <td>
-              <button class="btn btn-primary btn-sm" (click)="editar(receta.idReceta)">Editar</button>
+            <td *ngIf="user.idRol === 2 || user.idRol === 3">
+              <button class="btn btn-primary btn-sm"  (click)="editar(receta.idReceta)">Editar</button>
           </td>
           </tr>
           <tr>

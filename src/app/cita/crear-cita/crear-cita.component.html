@@ -13,13 +13,13 @@
     <div class="p-4">
       <form [formGroup]="CrearCita" (ngSubmit)="enviarForm()">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+          
           <div class="form-group">
             <label for="idMedico" class="block text-sm font-medium text-gray-700">Médico</label>
             <select class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" id="idMedico" formControlName="idMedico" (click)="horariosMedico($event)" required>
               <option *ngFor="let medico of medicos" [value]="medico.idMedico">{{medico.Medico}}</option>
             </select>
           </div>
-
           <div class="form-group">
             <label for="fechaCita" class="block text-sm font-medium text-gray-700">Fecha y Hora</label>
             <input type="date" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" id="fechaCita" required formControlName="fechaCita">
@@ -41,7 +41,10 @@
 
           <div class="form-group">
             <label for="estado" class="block text-sm font-medium text-gray-700">Estado</label>
-            <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" id="estado" placeholder="Estado de la Cita" required formControlName="estado">
+            <select class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" id="estado" formControlName="estado" placeholder="Estado de la Cita"  required>
+              <option value="Agendado">Agendado</option>
+              <option value="Cancelado">Cancelado</option>
+            </select>
           </div>
         </div>
         <!-- Botón personalizado -->

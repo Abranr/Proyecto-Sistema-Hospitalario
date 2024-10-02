@@ -91,15 +91,16 @@ export class LoginComponent {
         switch (userRole) {
           case 1:
             console.log('Paciente');
+            console.log(user);
             this.router.navigate(['/inicio/consultas']);
             break;
           case 2:
             console.log('Admin');
-            this.router.navigate(['/admin-dashboard']);
+            this.router.navigate(['/inicio/consultas']);
             break;
           case 3:
             console.log('Doctor');
-            this.router.navigate(['/doctor-dashboard']);
+            this.router.navigate(['/inicio/consultas']);
             break;
           default:
             console.error('Rol no reconocido');

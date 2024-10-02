@@ -18,7 +18,7 @@
                   <td>{{historial.fechaCita}}</td>
                   <td>{{historial.idCita}}</td>
                   <td>{{historial.Especialidad}}</td>
-                  <td>
+                  <td *ngIf="user.idRol === 2 || user.idRol === 3">
                       <button class="btn btn-warning btn-sm" (click)="editar(historial.idHistorial)">Modificar</button>
                   </td>
               </tr>

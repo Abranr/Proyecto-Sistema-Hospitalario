@@ -23,6 +23,6 @@ export class MedicosEspecialidadesComponent {
     );}
 
     editar(id: any){
-      this.router.navigate(['editar-medico/', id])
+      this.router.navigate(['inicio/editar-medico/', id])
     }
 }

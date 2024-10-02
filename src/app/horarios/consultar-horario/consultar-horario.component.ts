@@ -24,6 +24,6 @@ export class ConsultarHorarioComponent {
 
 
     editar(id:any){
-      this.router.navigate(['editar-horario/', id])
+      this.router.navigate(['inicio/editar-horario/', id])
     }
 }

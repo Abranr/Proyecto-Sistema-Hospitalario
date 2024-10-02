@@ -24,6 +24,6 @@ export class ConsultarRecursosComponent {
       );}
 
       editar(id:any){
-        this.route.navigate(['editar-recurso/', id])
+        this.route.navigate(['inicio/editar-recurso/', id])
       }
 }

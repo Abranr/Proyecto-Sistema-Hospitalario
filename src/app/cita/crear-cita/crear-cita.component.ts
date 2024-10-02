@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import {Router, ActivatedRoute} from '@angular/router'; 
 import { AppService } from '../../app.service';
 import { PacienteI } from '../../modelos/paciente.interface';
+import { ApiService } from '../../login/service/api.service';
 
 @Component({
   selector: 'app-crear-cita',
@@ -10,8 +11,8 @@ import { PacienteI } from '../../modelos/paciente.interface';
   styleUrl: './crear-cita.component.css'
 })
 export class CrearComponent {
-
-  constructor(private appService: AppService, private activeRouter: ActivatedRoute, private router: Router){}
+  user: any;  
+  constructor(private appService: AppService, private activeRouter: ActivatedRoute, private router: Router, private api: ApiService){}
   medicos: any [] =[];
   pacientes: any [] =[];
   horarios: any [] =[];
@@ -36,6 +37,7 @@ export class CrearComponent {
     this.appService.postCita(formValue).subscribe({
       next: (response) => {
           console.log('Cita creada:', response);
+          alert('Cita creada')
           // Redirigir o mostrar mensaje de éxito
       },
       error: (err) => {
@@ -46,7 +48,15 @@ export class CrearComponent {
   });
   }
 ngOnInit()
-{          
+{         
+   this.user = this.api.getUser();
+  
+        if (this.user) {
+    console.log('Objeto user recibido:', this.user);
+  } else {
+    console.error('No se encontró el objeto user en el servicio');
+  }
+
            this.consultarMedicos();
            this.consultarPacientes();
            /* this.consultarHorarios(); */
@@ -107,5 +117,10 @@ ngOnInit()
               }
             );
           } 
+
+
+          filtrarMedicosPorUsuario() {
+            this.medicos = this.medicos.filter(medico => medico.idMedico === this.user.idUsuario);
+          }
 
         }
