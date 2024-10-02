@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container1">
     <div class="forms-container">
         <div class="signin-signup">
             <form class="sign-in-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
@@ -30,6 +30,10 @@
                     <input type="text" placeholder="Ingresa un Nombre de Usuario" id="username"
                         formControlName="username" name="username" required />
                 </div>
+                  <!-- Mostrar mensaje de error si el username ya existe -->
+                  <div *ngIf="usernameError" class="alert alert-danger">
+                    {{ usernameError }}
+                </div>
                 <div class="input-field fecha" for="fechaNacimiento">
                     <i class="fas fa-envelope"></i>
                     <input type="date" placeholder="Ingresa tu Fecha de Nacimiento" id="fechaNacimiento" type="date"
@@ -60,7 +64,7 @@
                     <input type="number" placeholder="coloca 1" id="idRol" formControlName="idRol" name="idRol"
                         required />
                 </div> -->
-               <!--  <div class="input-field estado">
+                <!--  <div class="input-field estado">
                     <i class="fas fa-lock" for="estado"></i>
                     <input type="number" placeholder="ingresa 0 o 1" id="estado" formControlName="estado" name="estado"
                         required />
@@ -70,7 +74,7 @@
             </form>
         </div>
     </div>
-<!-- Estos son los botones que cambia de el formulario de inicio al de entrada -->
+    <!-- Estos son los botones que cambia de el formulario de inicio al de entrada -->
     <div class="panels-container">
         <div class="panel left-panel">
             <div class="content">

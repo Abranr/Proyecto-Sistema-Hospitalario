@@ -8,6 +8,9 @@ import { PacienteI } from '../../modelos/paciente.interface';
   providedIn: 'root',
 })
 export class ApiService {
+  getUserByUsername(username: string) {
+    throw new Error('Method not implemented.');
+  }
   private url: string = 'http://localhost:6500';
 
   constructor(private http: HttpClient) {}
