@@ -61,7 +61,7 @@ export class ConsultarCitaComponent {
             }
           );
         }
-        else{
+        if (idRol === 1){
           this.appService.getCitasIdPaciente(this.user.idUsuario).subscribe(
             (data: any[]) => {
               console.log(data);

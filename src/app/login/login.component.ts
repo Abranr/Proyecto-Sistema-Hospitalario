@@ -43,18 +43,22 @@ export class LoginComponent {
       (data) => {
         let user = data;
         let userRole = user.idRol;
+        this.api.setUser(user);
         console.log(user.username, userRole);
 
         // Redirigir según el rol
         switch (userRole) {
           case 1:
             console.log('Paciente');
+            this.router.navigate(['inicio/consultas'])
             break;
           case 2:
             console.log('Admin');
+            this.router.navigate(['inicio/consultas'])
             break;
           case 3:
             console.log('Doctor');
+            this.router.navigate(['inicio/consultas'])
             break;
           default:
             console.error('Rol no reconocido');

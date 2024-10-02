@@ -64,7 +64,7 @@ export class AppService {
     return this.http.get<any[]>(this.apiUrl + "especialidad");
   }
   getCitas(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl+ "citas/obtenerCitas");
+    return this.http.get<any[]>(this.apiUrl+ "citas/citasGenerales");
   }
 
   //verificar consulta y agregar endpoint
@@ -73,7 +73,7 @@ export class AppService {
   }
    //Citas por usuario
   getCitasIdPaciente(id: any): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl+ "/usuarios/consultarCitas/"+id);
+    return this.http.get<any[]>(this.apiUrl+ "citas/obtenerCitas/"+id);
   }
   //verificar consulta y agregar endpoint
   getHistorialPaciente(){
