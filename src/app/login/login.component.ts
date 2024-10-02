@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
 import { ApiService } from './service/api.service';
 import { LoginI } from '../modelos/login.interface';
 import { Router } from '@angular/router';
@@ -57,6 +62,13 @@ export class LoginComponent {
       }
     );
   }
+  // Método para verificar si un campo está inválido y se ha tocado
+  isFieldInvalid(field: string): boolean {
+    return (
+      this.nuevoForm.get(field)!.invalid &&
+      (this.nuevoForm.get(field)!.dirty || this.nuevoForm.get(field)!.touched)
+    );
+  }
 
   // Variable para almacenar el mensaje de error del username
   usernameError: string = '';
@@ -77,6 +89,12 @@ export class LoginComponent {
 
   // Método para manejar el formulario de inscripción
   postForm(form: FormGroup) {
+    // Verifica si el formulario es válido
+    if (this.nuevoForm.invalid) {
+      // Si hay campos inválidos, no procedemos
+      this.markAllFieldsAsTouched();
+      return;
+    }
     const formValue = form.value;
     const pacienteData: PacienteI = {
       username: formValue.username,
@@ -87,7 +105,7 @@ export class LoginComponent {
       fechaNacimiento: formValue.fechaNacimiento,
       email: formValue.email,
       numero: formValue.numero,
-      idRol: formValue.idRol, 
+      idRol: formValue.idRol,
       estado: formValue.estado,
     };
 
@@ -100,12 +118,23 @@ export class LoginComponent {
       (error) => {
         if (error.status === 409) {
           // Si el nombre de usuario ya existe
-          this.usernameError = 'El nombre de usuario ya existe. Por favor, elige otro.';
+          this.usernameError =
+            'El nombre de usuario ya existe. Por favor, elige otro.';
+          // Mostrar la ventana modal
         } else {
           console.error('Error al guardar el objeto usuario:', error);
           this.usernameError = 'Ocurrió un error al registrar el usuario.';
+          // Mostrar la ventana modal
         }
       }
     );
+  }
+
+  // Método para marcar todos los campos como tocados si hay errores
+  private markAllFieldsAsTouched() {
+    Object.keys(this.nuevoForm.controls).forEach((field) => {
+      const control = this.nuevoForm.get(field);
+      control?.markAsTouched({ onlySelf: true });
+    });
   }
 }
