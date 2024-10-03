@@ -31,7 +31,7 @@ export class ConsultasAnterioresComponent {
 
     verificarRol(idRol: any){
       if(idRol === 1){
-        this.appService.getHistorialPaciente().subscribe(
+        this.appService.getHistorialPaciente(this.user.idUsuario).subscribe(
           (data: any[]) => {
             console.log(data);
             this.historiales = data;

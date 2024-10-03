@@ -10,6 +10,7 @@
             <th>ID Cita</th>
             <th>Paciente</th>
             <th>Descripción</th>
+            <th *ngIf="user.idRol === 2 || user.idRol === 3">Acción</th>
           </tr>
         </thead>
         <tbody>

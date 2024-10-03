@@ -39,6 +39,7 @@ export class ConsultarCitaComponent {
 
       verificarRol(idRol: any){
         if(idRol === 2){
+          console.log(this.user.idRol);
           this.appService.getCitas().subscribe(
             (data: any[]) => {
               console.log(data);
@@ -50,11 +51,14 @@ export class ConsultarCitaComponent {
             }
           );
         }if(idRol === 3){
+          console.log(this.user.idRol);
           this.appService.getCitasIdMedico(this.user.idUsuario).subscribe(
             (data: any[]) => {
               console.log(data);
               this.citas = data;
-              
+              if(this.citas.length === 0){
+                alert('Médico no cuenta con citas programadas.')
+              }
             },
             (error: any) => {
               console.error('Error al obtener usuarios:', error);
@@ -62,14 +66,19 @@ export class ConsultarCitaComponent {
           );
         }
         if (idRol === 1){
+          console.log(this.user.idRol);
+          console.log(this.user.idUsuario);
+        
           this.appService.getCitasIdPaciente(this.user.idUsuario).subscribe(
             (data: any[]) => {
               console.log(data);
               this.citas = data;
-              
+              if(this.citas.length === 0){
+                alert('Paciente no cuenta con citas programadas.')
+              }
             },
             (error: any) => {
-              console.error('Error al obtener usuarios:', error);
+              console.error('Error al obtener citas:', error);
             }
           );
         }

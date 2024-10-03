@@ -38,18 +38,7 @@ ngOnInit(){
 
   verificarRol(idRol: any){
     if(idRol === 1){
-      this.appService.getRecetaPaciente().subscribe(
-        (data: any[]) => {
-          console.log(data);
-          this.recetas = data;
-          
-        },
-        (error: any) => {
-          console.error('Error al obtener usuarios:', error);
-        }
-      );
-    }if(idRol === 3){
-      this.appService.getCitasIdMedico(this.user.idUsuario).subscribe(
+      this.appService.getRecetaPaciente(this.user.idUsuario).subscribe(
         (data: any[]) => {
           console.log(data);
           this.recetas = data;
@@ -60,7 +49,7 @@ ngOnInit(){
         }
       );
     }
-    else{
+   else{
       this.appService.getRecetas().subscribe(
         (data: any[]) => {
           console.log(data);

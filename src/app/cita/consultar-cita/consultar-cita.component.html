@@ -10,7 +10,7 @@
           <th class="text-left">Medico</th>
           <th class="text-left">Fecha</th>
           <th class="text-left">Estado</th>
-          <th class="text-left">Accion</th>
+          <th class="text-left" *ngIf="user.idRol=== 2">Accion</th>
         </tr>
       </thead>
       <tbody>

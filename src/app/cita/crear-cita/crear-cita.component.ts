@@ -119,8 +119,6 @@ ngOnInit()
           } 
 
 
-          filtrarMedicosPorUsuario() {
-            this.medicos = this.medicos.filter(medico => medico.idMedico === this.user.idUsuario);
-          }
+          
 
         }
