@@ -11,9 +11,7 @@ import { AppService } from './app.service';
 import { CrearComponent } from './cita/crear-cita/crear-cita.component';
 import { EditarCitaComponent } from './cita/editar-cita/editar-cita.component';
 import { ConsultarCitaComponent } from './cita/consultar-cita/consultar-cita.component';
-import { HistorialMedicoComponent } from './medicos/historial-medico/historial-medico.component';
 import { ConsultasAnterioresComponent } from './medicos/consultas-anteriores/consultas-anteriores.component';
-import { DiagnosticosComponent } from './medicos/diagnosticos/diagnosticos.component';
 import { GestionarHorariosComponent } from './horarios/gestionar-horarios/gestionar-horarios.component';
 import { VisualizacionReservasComponent } from './reservas/visualizacion-reservas/visualizacion-reservas.component';
 import { GestionRecursosComponent } from './recursos/gestion-recursos/gestion-recursos.component';
@@ -46,9 +44,7 @@ import { EditarHistorialComponent } from './medicos/editar-historial/editar-hist
     CrearComponent,
     EditarCitaComponent,
     ConsultarCitaComponent,
-    HistorialMedicoComponent,
     ConsultasAnterioresComponent,
-    DiagnosticosComponent,
     GestionarHorariosComponent,
     VisualizacionReservasComponent,
     GestionRecursosComponent,

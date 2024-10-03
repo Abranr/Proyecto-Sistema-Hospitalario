@@ -1,19 +1,25 @@
+<!-- Tailwind CSS Link -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-        
-  
-        <!-- Formulario para modificar reserva -->
-        <div class="card mt-4">
-            <div class="card-header">
-                Agregar Especialidad
-            </div>
-            <form [formGroup]="CrearEspecialidad" (ngSubmit)="enviarForm()">
-            <div class="card-body">
-                <div class="form-group">
-                    <label>Especialidad</label>
-                    <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
-                </div>
-                <button type="submit" class="btn btn-success">Agregar Especialidad</button>
-            </div>
-        </form>
+<!-- Formulario para Agregar Especialidad -->
+<div class="container mx-auto mt-10 p-5">
+  <!-- Título personalizado -->
+  <h2 class="text-center mb-6 custom-title">Agregar Especialidad</h2>
+
+  <div class="bg-white shadow-lg rounded-lg p-6">
+    <!-- Encabezado personalizado -->
+    <div class="custom-header p-4 rounded-t-lg">Formulario de Especialidad</div>
+
+    <div class="p-4">
+      <form [formGroup]="CrearEspecialidad" (ngSubmit)="enviarForm()">
+        <div class="form-group mb-4">
+          <label for="nombre" class="block text-sm font-medium text-gray-700">Especialidad</label>
+          <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" id="nombre" formControlName="nombre" required>
         </div>
+        <!-- Botón personalizado -->
+        <button type="submit" class="custom-button w-full">Agregar Especialidad</button>
+      </form>
+    </div>
+  </div>
+</div>
 

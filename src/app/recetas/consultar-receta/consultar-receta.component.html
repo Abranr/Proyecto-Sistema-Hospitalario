@@ -1,8 +1,8 @@
 
-  
+
     <div class="container mt-5">
-      <h2 class="text-center mb-4">Recetas Médicas</h2>
-  
+      <h2 class="text-center mb-4">Consultar Recetas</h2>
+
       <table class="table table-bordered">
         <thead class="thead-dark">
           <tr>
@@ -10,6 +10,7 @@
             <th>ID Cita</th>
             <th>Paciente</th>
             <th>Descripción</th>
+            <th *ngIf="user.idRol === 2 || user.idRol === 3">Acción</th>
           </tr>
         </thead>
         <tbody>
@@ -19,8 +20,8 @@
             <td>{{receta.idCita}}</td>
             <td>{{receta.Paciente}}</td>
             <td>{{receta.descripcion}}</td>
-            <td>
-              <button class="btn btn-primary btn-sm" (click)="editar(receta.idReceta)">Editar</button>
+            <td *ngIf="user.idRol === 2 || user.idRol === 3">
+              <button class="btn btn-primary btn-sm"  (click)="editar(receta.idReceta)">Editar</button>
           </td>
           </tr>
           <tr>

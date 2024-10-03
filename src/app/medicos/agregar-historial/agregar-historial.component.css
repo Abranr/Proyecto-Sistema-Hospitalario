@@ -1,0 +1,30 @@
+/* Cambiar el color del título */
+h2.text-center {
+  color: #164e63; /* Color del título, puedes cambiar el valor #ff6347 por el que prefieras */
+  font-size: 2.5rem; /* Tamaño del título */
+  font-weight: bold;
+}
+
+/* Cambiar el color del encabezado de la tarjeta */
+.card-header {
+  font-size: 1.5rem; /* Tamaño de la fuente */
+  background-color: #083344; /* Color de fondo del encabezado */
+  color: #ffffff; /* Color del texto */
+  font-weight: bold;
+}
+
+/* Cambiar el estilo del botón */
+.btn-success {
+  background-color: #06b6d4; /* Color de fondo del botón */
+  color: #083344; /* Color del texto del botón */
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem; /* Bordes redondeados */
+  font-size: 1rem; /* Tamaño del texto */
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color:#0891b2; /* Color del botón al pasar el ratón */
+  color: #ffffff; /* Color del texto al pasar el ratón */
+}

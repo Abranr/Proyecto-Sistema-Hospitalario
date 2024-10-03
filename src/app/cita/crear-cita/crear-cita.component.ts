@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
 import {Router, ActivatedRoute} from '@angular/router'; 
 import { AppService } from '../../app.service';
 import { PacienteI } from '../../modelos/paciente.interface';
+import { ApiService } from '../../login/service/api.service';
 
 @Component({
   selector: 'app-crear-cita',
@@ -10,8 +11,8 @@ import { PacienteI } from '../../modelos/paciente.interface';
   styleUrl: './crear-cita.component.css'
 })
 export class CrearComponent {
-
-  constructor(private appService: AppService, private activeRouter: ActivatedRoute, private router: Router){}
+  user: any;  
+  constructor(private appService: AppService, private activeRouter: ActivatedRoute, private router: Router, private api: ApiService){}
   medicos: any [] =[];
   pacientes: any [] =[];
   horarios: any [] =[];
@@ -36,6 +37,7 @@ export class CrearComponent {
     this.appService.postCita(formValue).subscribe({
       next: (response) => {
           console.log('Cita creada:', response);
+          alert('Cita creada')
           // Redirigir o mostrar mensaje de éxito
       },
       error: (err) => {
@@ -46,9 +48,18 @@ export class CrearComponent {
   });
   }
 ngOnInit()
-{          
+{         
+   this.user = this.api.getUser();
+  
+        if (this.user) {
+    console.log('Objeto user recibido:', this.user);
+  } else {
+    console.error('No se encontró el objeto user en el servicio');
+  }
+
            this.consultarMedicos();
-           this.consultarPacientes();
+           this.verificarRolPaciente(this.user.idRol);/* 
+           this.consultarPacientes(); */
            /* this.consultarHorarios(); */
          }
  
@@ -76,7 +87,7 @@ ngOnInit()
               console.error('Error al obtener medicos:', error);
             }
           );} */
-         consultarPacientes(){
+     /*     consultarPacientes(){
            this.appService.getPacientes().subscribe(
              (data: any[]) => {
                console.log(data);
@@ -87,7 +98,7 @@ ngOnInit()
                console.error('Error al obtener pacientes:', error);
              }
            );
-          }
+          } */
          
           horariosMedico(event: Event){
             const medicoSeleccionado = event.target as HTMLSelectElement;
@@ -108,4 +119,32 @@ ngOnInit()
             );
           } 
 
+          verificarRolPaciente(idRol: any){
+            if(idRol === 1){
+              this.appService.getConsultarPacienteLogueado(this.user.idUsuario).subscribe(
+                (data: any[]) => {
+                  console.log(data);
+                  this.pacientes = data;
+                  
+                },
+                (error: any) => {
+                  console.error('Error al obtener usuarios:', error);
+                }
+              );
+            }
+           else{
+            this.appService.getPacientes().subscribe(
+              (data: any[]) => {
+                console.log(data);
+                this.pacientes = data;
+                
+              },
+              (error: any) => {
+                console.error('Error al obtener pacientes:', error);
+              }
+            );
+          }
+          
+
         }
+      }

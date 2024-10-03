@@ -17,8 +17,8 @@ export class EditarHistorialComponent {
   formValue: any;
 
   editarHistorial = new FormGroup({
-    idPaciente : new FormControl(null, Validators.required),
-    idCita : new FormControl(null, Validators.required),
+    idPaciente : new FormControl(),
+    idCita : new FormControl(),
   });
 
 

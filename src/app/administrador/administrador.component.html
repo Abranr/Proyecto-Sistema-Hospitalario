@@ -1,69 +1,95 @@
-<header class="d-flex justify-content-between align-items-center p-3 bg-light shadow-sm">
-  <div class="d-flex align-items-center">
-      <h1 class="fs-4 mb-0 text-center w-100">Centro Médico Esperanza</h1>
-  </div>
-  <nav class="d-flex align-items-center">
-      <ul class="nav me-4">
-          <li class="nav-item"><a href="#" class="nav-link text-dark">Inicio</a></li>
-          <li class="nav-item"><a href="#" class="nav-link text-dark">Reservar Citas</a></li>
-          <li class="nav-item"><a href="#" class="nav-link text-dark">Ingresar Horario</a></li>
-      </ul>
-      <form class="d-flex me-3" role="search">
-          <input class="form-control me-2" type="search" placeholder="Buscar doctor" aria-label="Buscar doctor">
-          <button class="btn btn-outline-primary" type="submit">
-              <i class="fas fa-search"></i>Buscar
-          </button>
-      </form>
-      <div class="user-icon ms-3">
-          <i class="fas fa-user-circle"></i>
-      </div>
-  </nav>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Navbar Header -->
+   <header class="d-flex justify-content-between align-items-center p-3 bg-light shadow-sm">
+    <div class="d-flex align-items-center">
+        <h1 class="fs-4 mb-0 text-center">Centro Médico Esperanza</h1>
+    </div>
+    <nav class="navbar navbar-expand-md navbar-light">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a href="/inicio/consultas" class="nav-link text-dark"><i class="fas fa-home"></i> Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/inicio/agregar-cita" class="nav-link text-dark"><i class="fas fa-calendar-plus"></i> Reservar Citas</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/inicio/agregar-horario" class="nav-link text-dark"><i class="fas fa-clock"></i> Ingresar Horario</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </header>
 
-<div class="d-flex content">
-  <aside class="bg-sidebar text-white vh-100 p-4">
-      <div class="menu-header d-flex align-items-center mb-4">
-          <i class="fas fa-user-circle fs-2 me-2"></i>
-          <span><a class="nav-link text-white" routerLink="/inicio/consultas">Administrador</a></span>
-      </div>
-      <ul class="nav flex-column mb-4">
-            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/consultas">Inicio</a></li>
-          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-cita">Agendar cita</a></li>
-          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-usuario">Agregar usuario</a></li>
-          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-especialidad">Agregar especialidad</a></li>
-          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-medico">Agregar médico</a></li>
-          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-horario">Agregar horario</a></li>
-          <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-historial">Agregar historial</a></li>
-      </ul>
-      <hr class="text-secondary">
-      <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="#" class="nav-link text-white" routerLink="/inicio/consultar-historial">Consultas Anteriores</a></li>
-          <li class="nav-item mb-2"><a href="#" class="nav-link text-white" routerLink="/inicio/agregar-receta">Recetas</a></li>
-      </ul>
-  </aside>
+<!-- Main Content -->
+<div class="content">
+    <aside class="bg-sidebar text-white vh-100 p-4 d-none d-md-block" [ngSwitch]="user.idRol">
+        <div class="menu-header d-flex align-items-center mb-4">
+            <i class="fas fa-user-circle fs-2 me-2"></i>
+            <span>
+                <a class="nav-link text-white" routerLink="/inicio/consultas" *ngIf="user.idRol=== 1" >Paciente</a>
+                <a class="nav-link text-white" routerLink="/inicio/consultas" *ngIf="user.idRol=== 2" >Administrador</a>
+                <a class="nav-link text-white" routerLink="/inicio/consultas" *ngIf="user.idRol=== 3" >Médico</a>
+            </span>
+        </div>
+        <ul class="nav flex-column mb-4" *ngSwitchCase=1 >
 
-  <div class="container-fluid dashboard-container d-flex justify-content-center align-items-start flex-column mt-3">
-      <div class="row text-center w-100">
-          <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/consultas"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-cita"><i class="fas fa-calendar-check"></i> Agendar cita</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/consultar-cita"><i class="fas fa-stethoscope"></i> Consultar cita</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/consultar-receta"><i class="fas fa-user-md"></i> Consultar recetas</a></li>
+        </ul>
 
+        <ul class="nav flex-column mb-4" *ngSwitchCase=2 >
 
-    <router-outlet>
-    </router-outlet>
-              <div class="row justify-content-center">
-                  <div class="col-md-10">
-                      <canvas id="chartUtilizacion" width="400" height="200"></canvas>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/consultas"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-cita"><i class="fas fa-calendar-check"></i> Agendar cita</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-usuario"><i class="fas fa-user-plus"></i> Agregar usuario</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-especialidad"><i class="fas fa-stethoscope"></i> Agregar especialidad</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-medico"><i class="fas fa-user-md"></i> Agregar médico</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-horario"><i class="fas fa-clock"></i> Agregar horario</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-historial"><i class="fas fa-file-medical"></i> Agregar historial</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-receta"><i class="fas fa-prescription-bottle"></i> Agregar recetas</a></li>
+        </ul>
+        <ul class="nav flex-column mb-4" *ngSwitchCase=3 >
+
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/consultas"><i class="fas fa-tachometer-alt"></i> Inicio</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-cita"><i class="fas fa-calendar-check"></i> Agendar cita</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-historial"><i class="fas fa-file-medical"></i> Agregar historial</a></li>
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/agregar-receta"><i class="fas fa-prescription-bottle"></i> Agregar recetas</a></li>
+        </ul>
+        <hr class="text-secondary">
+        <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/inicio/consultar-historial"><i class="fas fa-history"></i> Consultas Anteriores</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="container-fluid dashboard-container d-flex justify-content-center align-items-start flex-column mt-3">
+        <div class="row text-center w-100">
+            <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <router-outlet></router-outlet>
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <canvas id="chartUtilizacion" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-
-
+<!-- Footer -->
 <footer class="text-center py-3 bg-light">
-  <p class="mb-0">&copy; 2024 Centro Médico Esperanza. Todos los derechos reservados.</p>
+    <p class="mb-0">&copy; 2024 Centro Médico Esperanza. Todos los derechos reservados.</p>
 </footer>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Font Awesome JS -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

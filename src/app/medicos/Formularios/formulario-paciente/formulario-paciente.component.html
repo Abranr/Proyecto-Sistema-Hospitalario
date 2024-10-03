@@ -43,65 +43,75 @@
     </ul>
   </aside> -->
 
-  <!-- Formulario -->
-  <div class="container mt-5">
-    <h2 class="text-center mb-4 text-primary">Agregar Usuario</h2>
-    <div class="card shadow-sm">
-      <div class="card-header bg-primary text-white">Formulario de Usuario</div>
-      <div class="card-body">
-        <form [formGroup]="CrearUsuario" (ngSubmit)="enviarForm()">
-          <div class="form-group mb-3">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" id="username" formControlName="username" required>
+  <!-- Tailwind CSS Link -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<!-- Formulario -->
+<div class="container mx-auto mt-10 p-5">
+  <!-- Título con CSS personalizado -->
+  <h2 class="text-center mb-4 custom-title">Agregar Usuario</h2>
+
+  <div class="bg-white shadow-lg rounded-lg p-6">
+    <!-- Encabezado con CSS personalizado -->
+    <div class="custom-header p-3 rounded-t-lg">Formulario de Usuario</div>
+
+    <div class="p-4">
+      <form [formGroup]="CrearUsuario" (ngSubmit)="enviarForm()">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <div class="form-group">
+            <label for="username" class="block text-sm font-medium text-gray-700">Usuario</label>
+            <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" id="username" formControlName="username" required>
           </div>
-          <div class="form-group mb-3">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" formControlName="password"  required>
+          <div class="form-group">
+            <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+            <input type="password" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" id="password" formControlName="password" required>
           </div>
-          <div class="form-group mb-3">
-            <label for="dpi">DPI</label>
-            <input type="text" class="form-control" id="dpi" formControlName="dpi"  required>
+          <div class="form-group">
+            <label for="dpi" class="block text-sm font-medium text-gray-700">DPI</label>
+            <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" id="dpi" formControlName="dpi" required>
           </div>
-          <div class="form-group mb-3">
-            <label for="nombres">Nombres</label>
-            <input type="text" class="form-control" id="nombres"  formControlName="nombres" required>
+          <div class="form-group">
+            <label for="nombres" class="block text-sm font-medium text-gray-700">Nombres</label>
+            <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" id="nombres" formControlName="nombres" required>
           </div>
-          <div class="form-group mb-3">
-            <label for="apellidos">Apellidos</label>
-            <input type="text" class="form-control" id="apellidos" formControlName="apellidos"  required>
+          <div class="form-group">
+            <label for="apellidos" class="block text-sm font-medium text-gray-700">Apellidos</label>
+            <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" id="apellidos" formControlName="apellidos" required>
           </div>
-          <div class="form-group mb-3">
-            <label for="fechaNacimiento">Fecha de Nacimiento</label>
-            <input type="date" class="form-control" id="fechaNacimiento" formControlName="fechaNacimiento"  required>
+          <div class="form-group">
+            <label for="fechaNacimiento" class="block text-sm font-medium text-gray-700">Fecha de Nacimiento</label>
+            <input type="date" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" id="fechaNacimiento" formControlName="fechaNacimiento" required>
           </div>
-          <div class="form-group mb-3">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" formControlName="email"  required>
+          <div class="form-group">
+            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+            <input type="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" id="email" formControlName="email" required>
           </div>
-          <div class="form-group mb-3">
-            <label for="numero">Número de Teléfono</label>
-            <input type="tel" class="form-control" id="numero"  formControlName="numero"  required>
+          <div class="form-group">
+            <label for="numero" class="block text-sm font-medium text-gray-700">Número de Teléfono</label>
+            <input type="tel" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" id="numero" formControlName="numero" required>
           </div>
-          <div class="form-group mb-3">
-            <label for="rol">Rol</label>
-            <select class="form-control" id="rol"  formControlName="idRol" required>
+          <div class="form-group">
+            <label for="rol" class="block text-sm font-medium text-gray-700">Rol</label>
+            <select class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" id="rol" formControlName="idRol" required>
               <option value="1">Paciente</option>
               <option value="2">Administrador</option>
               <option value="3">Médico</option>
             </select>
           </div>
-          <button type="submit" class="btn btn-success">Guardar Usuario</button>
-        </form>
-      </div>
+        </div>
+        <!-- Botón con CSS personalizado -->
+        <button type="submit" class="custom-button">Guardar Usuario</button>
+      </form>
     </div>
   </div>
+</div>
 <!-- </div>
 
-Footer 
+Footer
 <footer class="text-center py-3 bg-light">
   <p class="mb-0">&copy; 2024 Centro Médico Esperanza. Todos los derechos reservados.</p>
 </footer>
- Bootstrap JS 
+ Bootstrap JS
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
  -->

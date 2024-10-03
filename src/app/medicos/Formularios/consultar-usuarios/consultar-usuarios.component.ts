@@ -25,7 +25,7 @@ export class ConsultarUsuariosComponent {
   }
 
   editar(id: any){
-    this.router.navigate(['editar-usuario/', id]);
+    this.router.navigate(['inicio/editar-usuario/', id]);
   }
     
 }

@@ -9,8 +9,6 @@ import { FormGroup } from '@angular/forms';
 export class AppService {
 
   private apiUrl = 'http://localhost:6500/'; 
-  private apiUrlcita = 'http://localhost:6500/citas'; 
-  private apiUrlcitas = 'http://localhost:6500/citas/'; 
   constructor(private http: HttpClient) { }
 
   // Método para obtener pacientes
@@ -64,12 +62,32 @@ export class AppService {
     return this.http.get<any[]>(this.apiUrl + "especialidad");
   }
   getCitas(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl+ "citas/obtenerCitas");
+    return this.http.get<any[]>(this.apiUrl+ "citas/citasGenerales");
   }
+
+  //verificar consulta y agregar endpoint
+  getCitasIdMedico(id: any): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl+ "medicos/consultarCitas/" + id);
+  }
+   //Citas por usuario
+  getCitasIdPaciente(id: any): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl+ "usuarios/consultarCitas/"+id);
+  }
+  //verificar consulta y agregar endpoint
+  getHistorialPaciente(id: any){
+    return this.http.get<any[]>(this.apiUrl+ "historial/historialPaciente/"+ id);
+  }
+  //verificar consulta y agregar endpoint
+  getRecetaPaciente(id: any){
+    return this.http.get<any[]>(this.apiUrl+ "usuarios/consultarRecetasPorPaciente/" + id);
+  }
+ 
   getPacientes(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl+ "usuarios/usuariosRol/1");
   }
-
+  getConsultarPacienteLogueado(id: any): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl+ "usuarios/consultarPacienteLogin/" + id);
+  }
   //revisar uso
   getDatosRol(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl+ "usuarios/usuariosRol/1");
@@ -111,11 +129,11 @@ export class AppService {
   }
 
   postHistorial(form: any){
-    return this.http.post<any[]>(this.apiUrl + "historial/1", form)
+    return this.http.post<any[]>(this.apiUrl + "historial", form)
   }
 
   putCita(id: any, form: any):Observable<any>{
-    return this.http.put<any[]>(this.apiUrlcitas + id, form)
+    return this.http.put<any[]>(this.apiUrl+'citas' + id, form)
   } 
   putUsuario(id: any, form: any):Observable<any>{
     return this.http.put<any[]>(this.apiUrl+'usuarios/' + id, form)
