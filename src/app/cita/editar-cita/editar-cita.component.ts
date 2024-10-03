@@ -23,6 +23,7 @@ export class EditarCitaComponent {
  
   this.consultarPacientes();
   this.consultarMedicos();
+  this.horarioCita();
   this.appService.getCitaId(this.id).subscribe(
         (data: any[]) => {
           console.log(data);
@@ -102,8 +103,21 @@ export class EditarCitaComponent {
         console.error('Error al obtener pacientes:', error);
       }
     );
+
   } 
-   
+  horarioCita(){
+  
+    this.appService.getHorarios().subscribe(
+      (data: any[]) => {
+       
+        this.horarios = data;
+        console.log('Horarios: '+ this.horarios);
+      },
+      (error: any) => {
+        console.error('Error al obtener pacientes:', error);
+      }
+    );
+  } 
 
    consultarMedicos(){
     this.appService.getMedicos().subscribe(
@@ -133,7 +147,7 @@ export class EditarCitaComponent {
         next: (response) => {
           console.log('Item eliminado:', response);
           this.editarCita.reset();
-          this.router.navigate(['consultar-cita']);
+          this.router.navigate(['inicio/consultar-cita']);
         },
         error: (error) => {
           console.error('Error al eliminar el item:', error);

@@ -58,7 +58,7 @@ export class EditarEspecialidadComponent {
       next: (response) => {
         console.log('Item eliminado:', response);
         this.editarEspecialidad.reset();
-        this.router.navigate(['consultar-especialidad']);
+        this.router.navigate(['inicio/consultar-especialidad']);
       },
       error: (error) => {
         console.error('Error al eliminar el item:', error);

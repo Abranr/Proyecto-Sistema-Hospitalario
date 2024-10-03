@@ -23,6 +23,7 @@ export class GestionRecursosComponent {
     this.appService.postSala(formValue).subscribe({
       next: (response) => {
           console.log('Sala creada:', response);
+          alert('Sala creada');
           // Redirigir o mostrar mensaje de éxito
       },
       error: (err) => {

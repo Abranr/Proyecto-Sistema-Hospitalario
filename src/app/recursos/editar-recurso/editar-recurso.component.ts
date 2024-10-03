@@ -61,7 +61,7 @@ export class EditarRecursoComponent {
     next: (response) => {
       console.log('Item eliminado:', response);
       this.editarRecurso.reset();
-      this.router.navigate(['consultar-recursos']);
+      this.router.navigate(['inicio/consultar-recursos']);
     },
     error: (error) => {
       console.error('Error al eliminar el item:', error);

@@ -66,7 +66,7 @@ export class EditarMedicoComponent {
       next: (response) => {
         console.log('Item eliminado:', response);
         this.editarMedico.reset();
-        this.router.navigate(['consultar-medico']);
+        this.router.navigate(['inicio/consultar-medico']);
       },
       error: (error) => {
         console.error('Error al eliminar el item:', error);
@@ -77,7 +77,7 @@ export class EditarMedicoComponent {
 
 
   consultarMedicos(){
-    this.appService.getMedicos().subscribe(
+    this.appService.getUsuarioMedico().subscribe(
       (data: any[]) => {
         console.log(data);
         this.medicos = data;

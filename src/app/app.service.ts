@@ -45,8 +45,11 @@ export class AppService {
   getMedicos(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl +"medicos/consultarMedico");
   } 
-  getMedicosId(id: any): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl +"medicos/consultarMedico" + id);
+  getUsuarioMedico(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl +"usuarios/usuariosRol/3");
+  } 
+  getConsultarMedicoLogueado(id: any): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl +"medicos/consultarMedicoLogin/" + id);
   } 
   //medicos
   getSalas(): Observable<any[]> {
@@ -93,7 +96,7 @@ export class AppService {
     return this.http.get<any[]>(this.apiUrl+ "usuarios/usuariosRol/1");
   }
   getHistorial(){
-    return this.http.get<any[]>(this.apiUrl+ "historial/historialMedico/1");
+    return this.http.get<any[]>(this.apiUrl+ "historial/historialGeneral");
   }
   
   getHorarioCita(id: any): Observable<any[]> {
@@ -133,7 +136,7 @@ export class AppService {
   }
 
   putCita(id: any, form: any):Observable<any>{
-    return this.http.put<any[]>(this.apiUrl+'citas' + id, form)
+    return this.http.put<any[]>(this.apiUrl+'citas/' + id, form)
   } 
   putUsuario(id: any, form: any):Observable<any>{
     return this.http.put<any[]>(this.apiUrl+'usuarios/' + id, form)

@@ -78,7 +78,7 @@ export class EditarRecetaComponent {
       next: (response) => {
         console.log('Item eliminado:', response);
         this.editarReceta.reset();
-        this.router.navigate(['consultar-receta']);
+        this.router.navigate(['inicio/consultar-receta']);
       },
       error: (error) => {
         console.error('Error al eliminar el item:', error);

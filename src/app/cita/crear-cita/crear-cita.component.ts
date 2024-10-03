@@ -57,10 +57,10 @@ ngOnInit()
     console.error('No se encontró el objeto user en el servicio');
   }
 
-           this.consultarMedicos();
+          this.verificarRolMedico(this.user.idRol);
            this.verificarRolPaciente(this.user.idRol);/* 
            this.consultarPacientes(); */
-           /* this.consultarHorarios(); */
+           /* this.consultarHorarios();   this.consultarMedicos(); */
          }
  
        consultarMedicos(){
@@ -76,30 +76,7 @@ ngOnInit()
          );
         }
  
-       /*  consultarMedicosId(){
-          this.appService.getMedicosId().subscribe(
-            (data: any[]) => {
-              console.log(data);
-              this.medicos = data;
-              
-            },
-            (error: any) => {
-              console.error('Error al obtener medicos:', error);
-            }
-          );} */
-     /*     consultarPacientes(){
-           this.appService.getPacientes().subscribe(
-             (data: any[]) => {
-               console.log(data);
-               this.pacientes = data;
-               
-             },
-             (error: any) => {
-               console.error('Error al obtener pacientes:', error);
-             }
-           );
-          } */
-         
+      
           horariosMedico(event: Event){
             const medicoSeleccionado = event.target as HTMLSelectElement;
             const medico = medicoSeleccionado.value;
@@ -144,7 +121,36 @@ ngOnInit()
               }
             );
           }
-          
-
         }
+
+        
+        verificarRolMedico(idRol: any){
+          if(idRol === 3){
+            this.appService.getConsultarMedicoLogueado(this.user.idUsuario).subscribe(
+              (data: any[]) => {
+                console.log(data);
+                this.medicos = data;
+                
+              },
+              (error: any) => {
+                console.error('Error al obtener medicos:', error);
+              }
+            );
+           }
+          
+         else{
+          this.appService.getMedicos().subscribe(
+            (data: any[]) => {
+              console.log(data);
+              this.medicos = data;
+              
+            },
+            (error: any) => {
+              console.error('Error al obtener medicos:', error);
+            }
+          );
+         }
+        
+
+      }
       }

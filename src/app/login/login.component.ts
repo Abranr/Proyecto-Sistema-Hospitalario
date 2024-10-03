@@ -39,24 +39,13 @@ export class LoginComponent {
       (data) => {
         let user = data;
         let userRole = user.idRol;
-<<<<<<< HEAD
-=======
         this.api.setUser(user);
->>>>>>> 02c874e0b8f15336d1bb3a9e83906fef803ef290
         console.log(user.username, userRole);
-
+        alert('Inicio de sesión exitoso.')
         // Redirigir según el rol
         switch (userRole) {
           case 1:
             console.log('Paciente');
-<<<<<<< HEAD
-            break;
-          case 2:
-            console.log('Admin');
-            break;
-          case 3:
-            console.log('Doctor');
-=======
             this.router.navigate(['inicio/consultas'])
             break;
           case 2:
@@ -66,7 +55,6 @@ export class LoginComponent {
           case 3:
             console.log('Doctor');
             this.router.navigate(['inicio/consultas'])
->>>>>>> 02c874e0b8f15336d1bb3a9e83906fef803ef290
             break;
           default:
             console.error('Rol no reconocido');
@@ -75,6 +63,7 @@ export class LoginComponent {
       },
       (error) => {
         console.log('Error al iniciar sesión', error);
+        alert('Error al iniciar sesión');
       }
     );
   }
@@ -129,17 +118,20 @@ export class LoginComponent {
     this.api.postPaciente(pacienteData).subscribe(
       (data) => {
         console.log('El objeto usuario se guardó correctamente:', data);
-        this.usernameError = ''; // Limpiar el error si la inscripción es exitosa
+        this.usernameError = ''; 
+        alert('Usuario agregado exitosamente.')// Limpiar el error si la inscripción es exitosa
       },
       (error) => {
         if (error.status === 409) {
           // Si el nombre de usuario ya existe
           this.usernameError =
             'El nombre de usuario ya existe. Por favor, elige otro.';
+            alert('El nombre de usuario ya existe. Por favor, elige otro.');
           // Mostrar la ventana modal
         } else {
           console.error('Error al guardar el objeto usuario:', error);
           this.usernameError = 'Ocurrió un error al registrar el usuario.';
+          alert('Ocurrió un error al registrar el usuario.');
           // Mostrar la ventana modal
         }
       }

@@ -49,7 +49,7 @@ export class FormularioMedicoComponent {
          }
  
        consultarMedicos(){
-         this.appService.getMedicos().subscribe(
+         this.appService.getUsuarioMedico().subscribe(
            (data: any[]) => {
              console.log(data);
              this.medicos = data;

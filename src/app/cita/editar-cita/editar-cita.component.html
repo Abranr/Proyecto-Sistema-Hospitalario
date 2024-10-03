@@ -24,7 +24,7 @@
             <div class="col-md-4">
               <label for="idPaciente">Paciente</label>
               <select class="form-control" id="idPaciente" placeholder="Paciente" formControlName="idPaciente" required>
-                <option *ngFor="let paciente of pacientes" value={{paciente.idUsuario}}>{{paciente.nombres}}</option>
+                <option *ngFor="let paciente of pacientes" value={{paciente.idUsuario}}>{{paciente.Nombre}}</option>
               </select>
             </div>
             <div class="col-md-4"></div>
@@ -35,7 +35,10 @@
             </div>
             <div class="col-md-4">
               <label for="estado">Estado</label>
-              <input type="text" class="form-control" id="estado" placeholder="Estado de la Cita" required formControlName="estado">
+              <select class="form-control" id="estado" formControlName="estado" placeholder="Estado de la Cita"  required>
+                <option value="Agendado">Agendado</option>
+                <option value="Cancelado">Cancelado</option>
+              </select>
             </div>
           <button type="submit" class="btn btn-success mt-3">Editar Cita</button>
           <button type="button" class="btn btn-success mt-3" (click)="eliminarCita(cita.idCita)">Eliminar Cita</button>

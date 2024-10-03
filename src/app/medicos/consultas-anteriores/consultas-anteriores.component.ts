@@ -39,6 +39,7 @@ export class ConsultasAnterioresComponent {
           },
           (error: any) => {
             console.error('Error al obtener usuarios:', error);
+            alert('Paciente no cuenta con historial médico.');
           }
         );
       }      

@@ -89,7 +89,7 @@ export class GestionarHorariosComponent {
         next: (response) => {
           console.log('Item eliminado:', response);
           this.editarHorario.reset();
-          this.router.navigate(['consultar-horario']);
+          this.router.navigate(['inicio/consultar-horario']);
         },
         error: (error) => {
           console.error('Error al eliminar el item:', error);

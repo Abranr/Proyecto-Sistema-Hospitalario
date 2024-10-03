@@ -13,7 +13,6 @@ import { EditarCitaComponent } from './cita/editar-cita/editar-cita.component';
 import { ConsultarCitaComponent } from './cita/consultar-cita/consultar-cita.component';
 import { ConsultasAnterioresComponent } from './medicos/consultas-anteriores/consultas-anteriores.component';
 import { GestionarHorariosComponent } from './horarios/gestionar-horarios/gestionar-horarios.component';
-import { VisualizacionReservasComponent } from './reservas/visualizacion-reservas/visualizacion-reservas.component';
 import { GestionRecursosComponent } from './recursos/gestion-recursos/gestion-recursos.component';
 import { PanelDeControlComponent } from './panel de control/panel-de-control/panel-de-control.component';
 import { PrincipalMedicosComponent } from './medicos/principal-medicos/principal-medicos.component';
@@ -46,7 +45,6 @@ import { EditarHistorialComponent } from './medicos/editar-historial/editar-hist
     ConsultarCitaComponent,
     ConsultasAnterioresComponent,
     GestionarHorariosComponent,
-    VisualizacionReservasComponent,
     GestionRecursosComponent,
     PanelDeControlComponent,
     PrincipalMedicosComponent,

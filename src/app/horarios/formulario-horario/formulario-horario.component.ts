@@ -30,6 +30,7 @@ enviarForm() {
   this.appService.postHorario(formValue).subscribe({
     next: (response) => {
         console.log('Horario creado:', response);
+        alert('Horario agregado');
         // Redirigir o mostrar mensaje de éxito
     },
     error: (err) => {

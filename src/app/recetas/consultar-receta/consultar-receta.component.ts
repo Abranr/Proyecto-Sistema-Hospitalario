@@ -46,6 +46,7 @@ ngOnInit(){
         },
         (error: any) => {
           console.error('Error al obtener usuarios:', error);
+          alert('Paciente no cuenta con recetas.');
         }
       );
     }

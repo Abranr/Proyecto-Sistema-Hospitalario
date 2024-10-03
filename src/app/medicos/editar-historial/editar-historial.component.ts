@@ -33,6 +33,7 @@ export class EditarHistorialComponent {
     this.appService.postHistorial(formValue).subscribe({
       next: (response) => {
           console.log('Historial actualizado:', response);
+          alert('Historial editado');
           // Redirigir o mostrar mensaje de éxito
       },
       error: (err) => {
@@ -85,7 +86,7 @@ export class EditarHistorialComponent {
             console.log('Item eliminado:', response);
             alert('Item eliminado')
             this.editarHistorial.reset();
-            this.router.navigate(['consultar-horario']);
+            this.router.navigate(['inicio/consultar-historial']);
           },
           error: (error) => {
             console.error('Error al eliminar el item:', error);

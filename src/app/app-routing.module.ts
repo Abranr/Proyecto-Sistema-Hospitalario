@@ -22,7 +22,6 @@ import { GestionarHorariosComponent } from './horarios/gestionar-horarios/gestio
 import { ConsultarRecetaComponent } from './recetas/consultar-receta/consultar-receta.component';
 import { AgregarRecetaComponent } from './recetas/agregar-receta/agregar-receta.component';
 import { EditarRecetaComponent } from './recetas/editar-receta/editar-receta.component';
-import { PanelDeControlComponent } from './panel de control/panel-de-control/panel-de-control.component';
 import { PrincipalAdminComponent } from './principal-admin/principal-admin.component';
 import { AgregarHistorialComponent } from './medicos/agregar-historial/agregar-historial.component';
 import { EditarHistorialComponent } from './medicos/editar-historial/editar-historial.component';
@@ -87,6 +86,8 @@ const routes: Routes = [
       { path: 'editar-receta/:id', component: EditarRecetaComponent },
       { path: 'agregar-historial', component: AgregarHistorialComponent },
       { path: 'editar-historial/:id', component: EditarHistorialComponent },
+      { path: 'agregar-sala', component: GestionRecursosComponent },
+      { path: 'editar-sala/:id', component: EditarRecursoComponent },
       { path: 'consultas', component: PrincipalAdminComponent },
 
     ]

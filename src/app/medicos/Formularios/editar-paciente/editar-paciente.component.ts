@@ -71,6 +71,7 @@ export class EditarPacienteComponent {
       next: (response) => {
         console.log(this.formValue);
           console.log('Usuario actualizado:', response);
+          alert('Usuario actualizado');
       },
       error: (err) => {
           console.error('Error al actualizar usuario:', err)
@@ -93,7 +94,7 @@ export class EditarPacienteComponent {
       next: (response) => {
         console.log('Item eliminado:', response); 
         this.editarUsuario.reset();
-        this.router.navigate(['consultar-usuario']);
+        this.router.navigate(['inicio/consultar-usuario']);
       },
       error: (error) => {
         console.error('Error al eliminar el item:', error);
