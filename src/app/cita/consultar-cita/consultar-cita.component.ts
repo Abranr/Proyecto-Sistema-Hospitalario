@@ -56,12 +56,10 @@ export class ConsultarCitaComponent {
             (data: any[]) => {
               console.log(data);
               this.citas = data;
-              if(this.citas.length === 0){
-                alert('Médico no cuenta con citas programadas.')
-              }
             },
             (error: any) => {
               console.error('Error al obtener usuarios:', error);
+              alert('Médico no cuenta con citas programadas.')
             }
           );
         }
@@ -73,12 +71,11 @@ export class ConsultarCitaComponent {
             (data: any[]) => {
               console.log(data);
               this.citas = data;
-              if(this.citas.length === 0){
-                alert('Paciente no cuenta con citas programadas.')
-              }
+              
             },
             (error: any) => {
               console.error('Error al obtener citas:', error);
+              alert('Paciente no cuenta con citas programadas.')
             }
           );
         }
