@@ -62,8 +62,9 @@ export class LoginComponent {
         }
       },
       (error) => {
-        console.log('Error al iniciar sesión', error);
-        alert('Error al iniciar sesión');
+        let errorMessage = error.error?.error;
+        this.openModal(errorMessage);
+
       }
     );
   }
@@ -119,19 +120,22 @@ export class LoginComponent {
       (data) => {
         console.log('El objeto usuario se guardó correctamente:', data);
         this.usernameError = ''; 
-        alert('Usuario agregado exitosamente.')// Limpiar el error si la inscripción es exitosa
+        this.openModal('Usuario agregado exitosamente.');
+        /* alert('Usuario agregado exitosamente.') */// Limpiar el error si la inscripción es exitosa
       },
       (error) => {
         if (error.status === 409) {
           // Si el nombre de usuario ya existe
           this.usernameError =
             'El nombre de usuario ya existe. Por favor, elige otro.';
-            alert('El nombre de usuario ya existe. Por favor, elige otro.');
+            this.openModal('El nombre de usuario ya existe. Por favor, elige otro.');
+            /* alert('El nombre de usuario ya existe. Por favor, elige otro.'); */
           // Mostrar la ventana modal
         } else {
           console.error('Error al guardar el objeto usuario:', error);
           this.usernameError = 'Ocurrió un error al registrar el usuario.';
-          alert('Ocurrió un error al registrar el usuario.');
+          this.openModal('Ocurrió un error al registrar el usuario.');
+          /* alert('Ocurrió un error al registrar el usuario.'); */
           // Mostrar la ventana modal
         }
       }
@@ -145,4 +149,30 @@ export class LoginComponent {
       control?.markAsTouched({ onlySelf: true });
     });
   }
+
+  openModal(message: string) {
+    const modal = document.getElementById('errorModal');
+    const modalMessage = document.querySelector('.modal-content p');
+    if (modal && modalMessage) {
+      modalMessage.textContent = message;
+      modal.style.display = 'block';
+    }
+  
+    const closeButton = document.getElementsByClassName('close')[0];
+    if (closeButton) {
+      closeButton.addEventListener('click', function() {
+        if (modal) {
+          modal.style.display = 'none';
+        }
+      });
+    }
+
+    window.onclick = function(event) {
+      // Verifica si el modal no es null antes de acceder a sus propiedades
+      if (modal && event.target == modal) {
+        modal.style.display = 'none'; // Ocultar el modal si se hace clic fuera del contenido
+      }
+    }
+  }
+
 }
