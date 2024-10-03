@@ -58,7 +58,8 @@ ngOnInit()
   }
 
            this.consultarMedicos();
-           this.consultarPacientes();
+           this.verificarRolPaciente(this.user.idRol);/* 
+           this.consultarPacientes(); */
            /* this.consultarHorarios(); */
          }
  
@@ -86,7 +87,7 @@ ngOnInit()
               console.error('Error al obtener medicos:', error);
             }
           );} */
-         consultarPacientes(){
+     /*     consultarPacientes(){
            this.appService.getPacientes().subscribe(
              (data: any[]) => {
                console.log(data);
@@ -97,7 +98,7 @@ ngOnInit()
                console.error('Error al obtener pacientes:', error);
              }
            );
-          }
+          } */
          
           horariosMedico(event: Event){
             const medicoSeleccionado = event.target as HTMLSelectElement;
@@ -118,7 +119,32 @@ ngOnInit()
             );
           } 
 
-
+          verificarRolPaciente(idRol: any){
+            if(idRol === 1){
+              this.appService.getConsultarPacienteLogueado(this.user.idUsuario).subscribe(
+                (data: any[]) => {
+                  console.log(data);
+                  this.pacientes = data;
+                  
+                },
+                (error: any) => {
+                  console.error('Error al obtener usuarios:', error);
+                }
+              );
+            }
+           else{
+            this.appService.getPacientes().subscribe(
+              (data: any[]) => {
+                console.log(data);
+                this.pacientes = data;
+                
+              },
+              (error: any) => {
+                console.error('Error al obtener pacientes:', error);
+              }
+            );
+          }
           
 
         }
+      }

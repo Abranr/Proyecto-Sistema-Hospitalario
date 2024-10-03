@@ -85,7 +85,9 @@ export class AppService {
   getPacientes(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl+ "usuarios/usuariosRol/1");
   }
-
+  getConsultarPacienteLogueado(id: any): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl+ "usuarios/consultarPacienteLogin/" + id);
+  }
   //revisar uso
   getDatosRol(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl+ "usuarios/usuariosRol/1");
