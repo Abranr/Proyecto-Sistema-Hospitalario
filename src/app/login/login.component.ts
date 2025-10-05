@@ -65,7 +65,7 @@ export class LoginComponent {
       },
       (error) => {
         let errorMessage = error.error?.error;
-        this.tituloModal= "Lo sentimos"; 
+        this.tituloModal= "Lo sentimos";
         this.srcModal="https://img.freepik.com/fotos-premium/simbolo-signo-exclamacion-azul-atencion-o-icono-signo-precaucion-fondo-problema-peligro-alerta-representacion-3d-senal-advertencia_256259-2831.jpg";
         this.openModal(errorMessage);
 
@@ -125,13 +125,13 @@ export class LoginComponent {
         this.tituloModal="";
         this.srcModal="https://cdn.pixabay.com/photo/2016/02/02/05/52/confirm-1174801_1280.png"
         console.log('El objeto usuario se guardó correctamente:', data);
-        this.usernameError = ''; 
+        this.usernameError = '';
         this.openModal('Usuario agregado exitosamente.');
         /* alert('Usuario agregado exitosamente.') */// Limpiar el error si la inscripción es exitosa
       },
       (error) => {
         if (error.status === 409) {
-          this.tituloModal= "Lo sentimos"; 
+          this.tituloModal= "Lo sentimos";
         this.srcModal="https://img.freepik.com/fotos-premium/simbolo-signo-exclamacion-azul-atencion-o-icono-signo-precaucion-fondo-problema-peligro-alerta-representacion-3d-senal-advertencia_256259-2831.jpg";
           // Si el nombre de usuario ya existe
           this.usernameError =
@@ -165,7 +165,7 @@ export class LoginComponent {
       modalMessage.textContent = message;
       modal.style.display = 'block';
     }
-  
+
     const closeButton = document.getElementsByClassName('close')[0];
     if (closeButton) {
       closeButton.addEventListener('click', function() {
