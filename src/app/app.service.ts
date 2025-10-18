@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class AppService {
 
-  private apiUrl = 'http://localhost:6500/'; 
+  private apiUrl = 'http://localhost:6500/';
   constructor(private http: HttpClient) { }
 
   // Método para obtener pacientes
@@ -44,13 +44,13 @@ export class AppService {
   }
   getMedicos(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl +"medicos/consultarMedico");
-  } 
+  }
   getUsuarioMedico(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl +"usuarios/usuariosRol/3");
-  } 
+  }
   getConsultarMedicoLogueado(id: any): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl +"medicos/consultarMedicoLogin/" + id);
-  } 
+  }
   //medicos
   getSalas(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl +"salas");
@@ -84,7 +84,7 @@ export class AppService {
   getRecetaPaciente(id: any){
     return this.http.get<any[]>(this.apiUrl+ "usuarios/consultarRecetasPorPaciente/" + id);
   }
- 
+
   getPacientes(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl+ "usuarios/usuariosRol/1");
   }
@@ -98,7 +98,7 @@ export class AppService {
   getHistorial(){
     return this.http.get<any[]>(this.apiUrl+ "historial/historialGeneral");
   }
-  
+
   getHorarioCita(id: any): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl+ "citas/obtenerCitas/" + id);
   }
@@ -137,27 +137,27 @@ export class AppService {
 
   putCita(id: any, form: any):Observable<any>{
     return this.http.put<any[]>(this.apiUrl+'citas/' + id, form)
-  } 
+  }
   putUsuario(id: any, form: any):Observable<any>{
     return this.http.put<any[]>(this.apiUrl+'usuarios/' + id, form)
-  } 
+  }
 
   putEspecialidad(id: any, form: any):Observable<any>{
     return this.http.put<any[]>(this.apiUrl+'especialidad/' + id, form)
-  } 
-  
+  }
+
   putSala(id: any, form: any):Observable<any>{
     return this.http.put<any[]>(this.apiUrl+'salas/' + id, form)
-  } 
+  }
   putMedico(id: any, form: any):Observable<any>{
     return this.http.put<any[]>(this.apiUrl+'medicos/' + id, form)
-  } 
+  }
   putHorario(id: any, form: any):Observable<any>{
     return this.http.put<any[]>(this.apiUrl+'horarios/' + id, form)
-  } 
+  }
   putReceta(id: any, form: any):Observable<any>{
     return this.http.put<any[]>(this.apiUrl+'recetas/' + id, form)
-  } 
+  }
 
   putHistorial(){
 
@@ -166,7 +166,7 @@ export class AppService {
   eliminarCita(id: any, form: any){
     let Options={
       headers: new HttpHeaders({
-        'Conten-type': 'application/json' 
+        'Conten-type': 'application/json'
       }),
       body: form
     }
@@ -176,7 +176,7 @@ export class AppService {
   eliminarPaciente(id: any, form: any){
     let Options={
       headers: new HttpHeaders({
-        'Conten-type': 'application/json' 
+        'Conten-type': 'application/json'
       }),
       body: form
     }
@@ -186,18 +186,18 @@ export class AppService {
   eliminarEspecialidad(id: any, form: any){
     let Options={
       headers: new HttpHeaders({
-        'Conten-type': 'application/json' 
+        'Conten-type': 'application/json'
       }),
       body: form
     }
     return this.http.delete<any[]>(this.apiUrl + "especialidad/" + id, Options);
   }
 
-  
+
   eliminarSala(id: any, form: any){
     let Options={
       headers: new HttpHeaders({
-        'Conten-type': 'application/json' 
+        'Conten-type': 'application/json'
       }),
       body: form
     }
@@ -207,7 +207,7 @@ export class AppService {
   eliminarMedico(id: any, form: any){
     let Options={
       headers: new HttpHeaders({
-        'Conten-type': 'application/json' 
+        'Conten-type': 'application/json'
       }),
       body: form
     }
@@ -218,7 +218,7 @@ export class AppService {
   eliminarHorario(id: any, form: any){
     let Options={
       headers: new HttpHeaders({
-        'Conten-type': 'application/json' 
+        'Conten-type': 'application/json'
       }),
       body: form
     }
@@ -228,7 +228,7 @@ export class AppService {
   eliminarReceta(id: any, form: any){
     let Options={
       headers: new HttpHeaders({
-        'Conten-type': 'application/json' 
+        'Conten-type': 'application/json'
       }),
       body: form
     }
@@ -238,10 +238,11 @@ export class AppService {
   eliminarHistorial(id: any, form: any){
     let Options={
       headers: new HttpHeaders({
-        'Conten-type': 'application/json' 
+        'Conten-type': 'application/json'
       }),
       body: form
     }
     return this.http.delete<any[]>(this.apiUrl + "historial/" + id, Options);
   }
+  
 }

@@ -26,7 +26,9 @@ input {
   top: 0;
   left: 0;
 }
-.fecha i,
+
+/* Campos de fecha y correo en línea */
+.fecha,
 .correo {
   display: inline-block;
   vertical-align: top;
@@ -37,6 +39,20 @@ input {
 .correo {
   margin-right: 0;
 }
+
+/* Campos de teléfono y DPI en línea */
+.telefono,
+.dpi {
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+  margin-right: 2%;
+}
+
+.dpi {
+  margin-right: 0;
+}
+
 .signin-signup {
   position: absolute;
   top: 50%;
@@ -81,14 +97,19 @@ form.sign-in-form {
   width: 100%;
   background-color: #f0f0f0;
   margin: 5px 0;
-  height: 40px;
+  height: 55px;
   border-radius: 55px;
   display: grid;
   grid-template-columns: 15% 85%;
   padding: 0 0.4rem;
   position: relative;
+  transition: all 0.3s ease;
 }
 
+.input-field:focus-within {
+  background-color: #e8e8e8;
+  box-shadow: 0 0 0 2px #156775;
+}
 
 .input-field i {
   text-align: center;
@@ -96,6 +117,10 @@ form.sign-in-form {
   color: #acacac;
   transition: 0.5s;
   font-size: 1.1rem;
+}
+
+.input-field:focus-within i {
+  color: #156775;
 }
 
 .input-field input {
@@ -113,6 +138,21 @@ form.sign-in-form {
   font-weight: 500;
 }
 
+.input-field input:focus::placeholder {
+  opacity: 0.7;
+}
+
+/* Estilos para campos de fecha */
+.input-field input[type="date"] {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.input-field input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.5);
+}
+
 .btn {
   width: 150px;
   background-color: #156775;
@@ -125,12 +165,20 @@ form.sign-in-form {
   font-weight: 600;
   margin: 10px 0;
   cursor: pointer;
-  transition: 0.5s;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
   background-color: #0e7490;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(21, 103, 117, 0.3);
 }
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(21, 103, 117, 0.3);
+}
+
 .panels-container1 {
   position: absolute;
   height: 100%;
@@ -149,7 +197,7 @@ form.sign-in-form {
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #156775 0%, #156775 100%);
+  background-image: linear-gradient(-45deg, #156775 0%, #0e7490 100%);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
@@ -164,69 +212,109 @@ form.sign-in-form {
 .panel1 {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-around;
-  text-align: center;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
   z-index: 6;
 }
 
 .left-panel1 {
   pointer-events: all;
-  padding: 3rem 17% 2rem 12%;
+  padding: 3rem 10% 2rem 15%;
 }
 
 .right-panel1 {
   pointer-events: none;
-  padding: 3rem 12% 2rem 17%;
+  padding: 3rem 15% 2rem 10%;
+  align-items: flex-end;
+  text-align: right;
 }
 
 .panel1 .content1 {
   color: #ECFCFE;
   transition: transform 0.9s ease-in-out;
   transition-delay: 0.6s;
+  max-width: 400px;
 }
 
 .panel1 h3 {
   font-weight: 600;
-  line-height: 1;
-  font-size: 1.5rem;
+  line-height: 1.2;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
 }
 
 .panel1 p {
-  font-size: 0.95rem;
+  font-size: 1rem;
   padding: 0.7rem 0;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 .btn.transparent {
   margin: 0;
   background: none;
   border: 2px solid #ECFCFE;
-  width: 130px;
-  height: 41px;
+  width: 140px;
+  height: 45px;
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  color: #ECFCFE;
+}
+
+.btn.transparent:hover {
+  background-color: rgba(236, 252, 254, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
 }
 
 .right-panel1 .image,
 .right-panel1 .content1 {
   transform: translateX(800px);
 }
-.opciones{
+
+.opciones {
   border: none;
-  background-color:#f0f0f0 ;
+  background-color: #f0f0f0;
   margin: 10px 0;
   line-height: 55px;
   color: #acacac;
   transition: 0.5s;
   font-size: 1.1rem;
 }
+
+/* Estilos mejorados para alertas */
 .alert {
-  color: red;
-  font-size:12px;
-  margin-top: 1px;
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #ffe6e6;
+  border-left: 3px solid #dc3545;
+  max-width: 380px;
+  width: 100%;
+  text-align: left;
+  animation: slideIn 0.3s ease;
 }
 
-/* ANIMATION */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert-danger {
+  color: #dc3545;
+}
+
+/* ANIMACIONES */
 
 .container1.sign-up-mode:before {
   transform: translate(100%, -50%);
@@ -265,11 +353,101 @@ form.sign-in-form {
   pointer-events: all;
 }
 
+/* ESTILOS DEL MODAL MEJORADOS */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: slideDown 0.4s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-image {
+  margin-bottom: 20px;
+}
+
+.modal-image img {
+  width: 80px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.modal-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.modal p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: 300;
+  cursor: pointer;
+  color: #888;
+  transition: all 0.3s ease;
+}
+
+.close:hover {
+  color: #333;
+  transform: rotate(90deg);
+}
+
+/* RESPONSIVE DESIGN */
+
 @media (max-width: 870px) {
   .container1 {
     min-height: 800px;
     height: 100vh;
   }
+
   .signin-signup {
     width: 100%;
     top: 95%;
@@ -293,6 +471,7 @@ form.sign-in-form {
     align-items: center;
     padding: 2.5rem 8%;
     grid-column: 1 / 2;
+    text-align: center;
   }
 
   .right-panel1 {
@@ -310,7 +489,7 @@ form.sign-in-form {
   }
 
   .panel1 .content1 {
-    padding-right: 15%;
+    padding: 0 5%;
     transition: transform 0.9s ease-in-out;
     transition-delay: 0.8s;
   }
@@ -320,7 +499,7 @@ form.sign-in-form {
   }
 
   .panel1 p {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     padding: 0.5rem 0;
   }
 
@@ -366,6 +545,14 @@ form.sign-in-form {
     top: 5%;
     transform: translate(-50%, 0);
   }
+
+  /* Campos en línea también en móvil tablet */
+  .fecha,
+  .correo,
+  .telefono,
+  .dpi {
+    width: 48%;
+  }
 }
 
 @media (max-width: 570px) {
@@ -376,9 +563,11 @@ form.sign-in-form {
   .image {
     display: none;
   }
+
   .panel1 .content1 {
     padding: 0.5rem 1rem;
   }
+
   .container1 {
     padding: 1.5rem;
   }
@@ -392,62 +581,193 @@ form.sign-in-form {
     bottom: 28%;
     left: 50%;
   }
+
+  /* Campos a ancho completo en móvil pequeño */
+  .fecha,
+  .correo,
+  .telefono,
+  .dpi {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .modal-title {
+    font-size: 20px;
+  }
+
+  .modal p {
+    font-size: 14px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .input-field {
+    height: 50px;
+  }
+
+  .input-field i {
+    line-height: 50px;
+  }
 }
 
-.modal {
-  display: none; /* Oculto por defecto */
-  position: fixed; 
-  z-index: 1000; 
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+/* Logo Centro Médico - Diseño Innovador */
+.medical-center-logo {
+  margin-bottom: 20px;
+  transition: all 0.5s ease;
 }
 
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto; /* Centrado vertical */
-  padding: 20px;
-  border-radius: 8px; /* Bordes redondeados */
-  width: 30%; /* Ancho del modal */
-  max-width: 500px; /* Máximo ancho */
-  text-align: center; /* Centrar el contenido */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-  position: relative;
-}
-.modal-image {
-  margin-bottom: 10px;
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #156775 0%, #0e7490 100%);
+  border-radius: 50px;
+  box-shadow: 0 8px 20px rgba(21, 103, 117, 0.3);
+  transition: all 0.5s ease;
 }
 
-.modal-image img {
-  width: 100px; /* Tamaño de la imagen */
-  height: auto; /* Mantener proporción de aspecto */
-  display: block;
-  margin: 0 auto; /* Centrar la imagen */
+.logo-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
 }
 
-
-.modal-title {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #333;
+.logo-icon i {
+  font-size: 1.8rem;
+  color: #ECFCFE;
+  animation: heartbeat 1.5s ease-in-out infinite;
 }
 
-.modal p {
-  font-size: 16px;
-  color: #666;
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 20px;
-  cursor: pointer;
-  color: #888;
+.logo-text h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ECFCFE;
+  letter-spacing: 0.5px;
+  line-height: 1;
 }
 
-.close:hover {
-  color: #333;
+.logo-text h1 .highlight {
+  font-weight: 800;
+  background: linear-gradient(90deg, #ECFCFE 0%, #a5f3fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tagline {
+  font-size: 0.75rem;
+  color: rgba(236, 252, 254, 0.8);
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.15);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+/* Logo cambia cuando está en modo registro */
+.container1.sign-up-mode .logo-container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.container1.sign-up-mode .logo-icon {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* Hover effect */
+.logo-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(21, 103, 117, 0.4);
+}
+
+.container1.sign-up-mode .logo-container:hover {
+  box-shadow: 0 12px 35px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive para el logo */
+@media (max-width: 870px) {
+  .medical-center-logo {
+    top: 25px;
+  }
+
+  .logo-container {
+    padding: 10px 20px;
+    gap: 12px;
+  }
+
+  .logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo-icon i {
+    font-size: 1.4rem;
+  }
+
+  .logo-text h1 {
+    font-size: 1.3rem;
+  }
+
+  .tagline {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 570px) {
+  .medical-center-logo {
+    top: 20px;
+  }
+
+  .logo-container {
+    padding: 8px 16px;
+    gap: 10px;
+  }
+
+  .logo-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .logo-icon i {
+    font-size: 1.2rem;
+  }
+
+  .logo-text h1 {
+    font-size: 1.1rem;
+  }
+
+  .tagline {
+    font-size: 0.6rem;
+  }
 }

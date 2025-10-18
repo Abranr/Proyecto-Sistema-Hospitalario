@@ -1,7 +1,20 @@
 <div class="container1">
     <div class="forms-container">
         <div class="signin-signup">
+            <!-- Formulario de Inicio de Sesión -->
             <form class="sign-in-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                <!-- Logo dentro del formulario -->
+                <div class="medical-center-logo">
+                    <div class="logo-container">
+                        <div class="logo-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="logo-text">
+                            <h1> <span class="highlight">CAP</span></h1>
+                            <p class="tagline">Tu salud, nuestra prioridad</p>
+                        </div>
+                    </div>
+                </div>
 
                 <h2 class="title">Ingresa aquí</h2>
 
@@ -16,15 +29,27 @@
                 </div>
 
                 <input type="submit" value="Ingresa" class="btn solid" />
-
             </form>
 
+            <!-- Formulario de Registro -->
             <form class="sign-up-form" [formGroup]="nuevoForm" (ngSubmit)="postForm(nuevoForm)">
+                <!-- Logo dentro del formulario de registro -->
+                <div class="medical-center-logo">
+                    <div class="logo-container">
+                        <div class="logo-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="logo-text">
+                            <h1>Centro <span class="highlight">Médico</span></h1>
+                            <p class="tagline">Tu salud, nuestra prioridad</p>
+                        </div>
+                    </div>
+                </div>
 
-                <h2 class="title">Inscribete aqui</h2>
+                <h2 class="title">Inscríbete aquí</h2>
 
                 <div class="input-field">
-                    <i class="fas fa-envelope" for="nombres"></i>
+                    <i class="fas fa-user"></i>
                     <input id="nombres" type="text" placeholder="Ingresa tus Nombres" formControlName="nombres"
                         name="nombres" required />
                 </div>
@@ -33,7 +58,7 @@
                 </div>
 
                 <div class="input-field">
-                    <i class="fas fa-envelope" for="apellidos"></i>
+                    <i class="fas fa-user"></i>
                     <input id="apellidos" type="text" placeholder="Ingresa tus Apellidos" formControlName="apellidos"
                         name="apellidos" required />
                 </div>
@@ -42,21 +67,20 @@
                 </div>
 
                 <div class="input-field">
-                    <i class="fas fa-user" for="username"></i>
+                    <i class="fas fa-user"></i>
                     <input type="text" placeholder="Ingresa un Nombre de Usuario" id="username"
                         formControlName="username" name="username" required />
                 </div>
                 <div *ngIf="isFieldInvalid('username')" class="alert alert-danger">
                     El campo de usuario es obligatorio.
                 </div>
-                  <!-- Mostrar mensaje de error si el username ya existe -->
-                  <div *ngIf="usernameError" class="alert alert-danger">
+                <div *ngIf="usernameError" class="alert alert-danger">
                     {{ usernameError }}
                 </div>
 
-                <div class="input-field fecha" for="fechaNacimiento">
-                    <i class="fas fa-envelope"></i>
-                    <input type="date" placeholder="Ingresa tu Fecha de Nacimiento" id="fechaNacimiento" type="date"
+                <div class="input-field fecha">
+                    <i class="fas fa-calendar"></i>
+                    <input id="fechaNacimiento" type="date" placeholder="Ingresa tu Fecha de Nacimiento"
                         formControlName="fechaNacimiento" name="fechaNacimiento" required />
                 </div>
                 <div *ngIf="isFieldInvalid('fechaNacimiento')" class="alert alert-danger">
@@ -64,7 +88,7 @@
                 </div>
 
                 <div class="input-field correo">
-                    <i class="fas fa-envelope " for="email"></i>
+                    <i class="fas fa-envelope"></i>
                     <input type="email" placeholder="Ingresa tu Correo" id="email" formControlName="email" name="email"
                         required />
                 </div>
@@ -73,16 +97,16 @@
                 </div>
 
                 <div class="input-field telefono">
-                    <i class="fas fa-envelope"></i>
-                    <input type="number" placeholder="Ingresa tu Telefono" formControlName="numero" id="numero"
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" placeholder="Ingresa tu Teléfono" formControlName="numero" id="numero"
                         name="numero" required />
                 </div>
                 <div *ngIf="isFieldInvalid('numero')" class="alert alert-danger">
-                    El campo de telefono es obligatorio.
+                    El campo de teléfono es obligatorio.
                 </div>
 
                 <div class="input-field dpi">
-                    <i class="fas fa-envelope" for="dpi"></i>
+                    <i class="fas fa-id-card"></i>
                     <input type="text" placeholder="Ingresa tu DPI" id="dpi" formControlName="dpi" name="dpi"
                         required />
                 </div>
@@ -91,57 +115,46 @@
                 </div>
 
                 <div class="input-field">
-                    <i class="fas fa-lock" for="password"></i>
+                    <i class="fas fa-lock"></i>
                     <input type="password" placeholder="Ingresa tu Contraseña" id="password" formControlName="password"
                         name="password" required />
                 </div>
                 <div *ngIf="isFieldInvalid('password')" class="alert alert-danger">
                     El campo de contraseña es obligatorio.
                 </div>
-                <!-- <div class="input-field idRol">
-                    <i class="fas fa-lock" for="idRol"></i>
-                    <input type="number" placeholder="coloca 1" id="idRol" formControlName="idRol" name="idRol"
-                        required />
-                </div> -->
-                <!--  <div class="input-field estado">
-                    <i class="fas fa-lock" for="estado"></i>
-                    <input type="number" placeholder="ingresa 0 o 1" id="estado" formControlName="estado" name="estado"
-                        required />
-                </div> -->
 
-                <input type="submit" class="btn" value="inscribete" />
+                <input type="submit" class="btn" value="Inscríbete" />
             </form>
         </div>
     </div>
-    <!-- Estos son los botones que cambia de el formulario de inicio al de entrada -->
+
+    <!-- Paneles de cambio entre formularios -->
     <div class="panels-container1">
         <div class="panel1 left-panel1">
             <div class="content1">
                 <h3>¿Eres Nuevo?</h3>
-                <p>Si deseas agendar una cita y llevar control de tu salud, registrate</p>
-                <button class="btn transparent" id="sign-up-btn">Inscribete</button>
+                <p>Si deseas agendar una cita y llevar control de tu salud, regístrate</p>
+                <button class="btn transparent" id="sign-up-btn">Inscríbete</button>
             </div>
         </div>
         <div class="panel1 right-panel1">
             <div class="content1">
-                <h3>Inicio de Sesion</h3>
-                <p>Si ya tienes una cuenta preciona aquí.</p>
-                <button class="btn transparent" id="sign-in-btn">Ingresa aqui</button>
+                <h3>Inicio de Sesión</h3>
+                <p>Si ya tienes una cuenta presiona aquí.</p>
+                <button class="btn transparent" id="sign-in-btn">Ingresa aquí</button>
             </div>
         </div>
     </div>
 </div>
 
-
 <!-- Modal para mostrar errores -->
 <div id="errorModal" class="modal">
     <div class="modal-content">
-      <span class="close">&times;</span>
-      <!-- Imagen en lugar de icono -->
-      <div class="modal-image">
-        <img src="{{srcModal}}" alt="Advertencia" id="modalImage">
-      </div>
-      <h2 class="modal-title">{{tituloModal}}</h2>
-      <p id="modalMessage"></p>
+        <span class="close">&times;</span>
+        <div class="modal-image">
+            <img [src]="srcModal" alt="Advertencia" id="modalImage">
+        </div>
+        <h2 class="modal-title">{{tituloModal}}</h2>
+        <p id="modalMessage"></p>
     </div>
 </div>
